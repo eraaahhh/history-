@@ -1,134 +1,872 @@
 <!DOCTYPE html>
 <html lang="sq">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Monarkitë dhe zhvillimi i shteteve</title>
-  <style>
-    :root {
-      --bg: #f3efe8;
-      --paper: #fbf8f5;
-      --card: #efe4d6;
-      --card2: #e7d5b7;
-      --dark: #1e1d1c;
-      --text: #2b2a29;
-      --muted: #5f5753;
-      --accent: #9a5d32;
-      --accent2: #7d4524;
-      --success: #275f38;
-      --danger: #8e3d3d;
-      --shadow: rgba(22, 18, 14, 0.1);
-      --line: rgba(30, 29, 28, 0.3);
-    }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Historia e Mesjetës dhe Monarkive</title>
+    <style>
+      :root {
+        --bg: #f4efe8;
+        --paper: #fffdfb;
+        --gold: #d9b985;
+        --gold-deep: #b98d5c;
+        --bronze: #9f6437;
+        --ink: #1d1a17;
+        --muted: #5a514b;
+        --green: #2d5f48;
+        --red: #8c3d3d;
+        --line: rgba(29, 26, 23, 0.22);
+        --shadow: rgba(22, 18, 14, 0.12);
+      }
 
-    * { box-sizing: border-box; }
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
 
-    html { scroll-behavior: smooth; }
+      body {
+        margin: 0;
+        font-family: "Segoe UI", Arial, sans-serif;
+        background: linear-gradient(180deg, #f2efe9 0%, #f8f2ed 100%);
+        color: var(--ink);
+        line-height: 1.7;
+      }
 
-    body {
-      margin: 0;
-      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(180deg, #f2efe9 0%, #f8f3ee 100%);
-      color: var(--text);
-      line-height: 1.6;
-    }
+      a { color: inherit; text-decoration: none; }
+      img { max-width: 100%; }
 
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 18px 18px 50px;
-    }
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 18px 18px 64px;
+      }
 
-    .topbar {
-      background: #f8f2eb;
-      border: 3px solid var(--dark);
-      border-radius: 18px;
-      box-shadow: 0 8px 0 rgba(0,0,0,0.08);
-      padding: 20px 14px;
-      text-align: center;
-    }
+      .topbar {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        background: rgba(248, 242, 235, 0.95);
+        backdrop-filter: blur(8px);
+        border: 3px solid var(--ink);
+        border-radius: 20px;
+        box-shadow: 0 8px 0 rgba(0,0,0,0.08);
+        margin-top: 12px;
+      }
 
-    h1 {
-      margin: 0;
-      font-size: clamp(1.8rem, 2.8vw, 3rem);
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: var(--dark);
-      font-weight: 900;
-    }
+      .nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        padding: 16px 20px;
+      }
 
-    .section {
-      margin-top: 28px;
-    }
+      .nav a {
+        background: #f5ebdf;
+        border: 2px solid rgba(29, 26, 23, 0.7);
+        border-radius: 999px;
+        padding: 8px 12px;
+        font-size: 0.9rem;
+        font-weight: 700;
+        transition: transform 0.2s ease;
+      }
 
-    .subhead {
-      font-size: clamp(1.4rem, 2vw, 2.1rem);
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-      margin-bottom: 12px;
-      color: var(--dark);
-    }
+      .nav a:hover {
+        transform: translateY(-1px);
+      }
 
-    .compare-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-    }
+      .hero {
+        margin-top: 28px;
+        background: var(--paper);
+        border: 3px solid var(--ink);
+        border-radius: 22px;
+        padding: 28px 24px;
+        box-shadow: 0 12px 0 rgba(0,0,0,0.08);
+      }
 
-    .card {
-      background: var(--paper);
-      border: 3px solid var(--dark);
-      border-radius: 14px;
-      overflow: hidden;
-      box-shadow: 0 8px 0 rgba(0,0,0,0.08);
-    }
+      .eyebrow {
+        display: inline-block;
+        font-size: 0.8rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        font-weight: 800;
+        background: #efe0c8;
+        border: 2px solid var(--ink);
+        border-radius: 999px;
+        padding: 7px 12px;
+      }
 
-    .card-header {
-      background: linear-gradient(90deg, #d9b08a, #cfa37c);
-      padding: 12px 16px;
-      font-weight: 900;
-      text-transform: uppercase;
-      font-size: 1.05rem;
-      letter-spacing: 0.04em;
-      color: var(--dark);
-      border-bottom: 3px solid var(--dark);
-    }
+      h1 {
+        margin: 16px 0 12px;
+        font-size: clamp(2rem, 4vw, 3.4rem);
+        line-height: 1.1;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
 
-    .card-body {
-      padding: 16px 18px;
-      background: #f6f0ea;
-      min-height: 140px;
-    }
+      .lead {
+        max-width: 860px;
+        margin: 0;
+        font-size: 1.14rem;
+        color: var(--muted);
+      }
 
-    .card-body ul {
-      margin: 0;
-      padding-left: 18px;
-      font-size: 0.98rem;
-      line-height: 1.8;
-    }
+      .section {
+        margin-top: 34px;
+      }
 
-    .keywords {
-      background: #f6f2ee;
-      border: 3px solid var(--dark);
-      border-radius: 18px;
-      padding: 18px 18px 10px;
-      box-shadow: 0 8px 0 rgba(0,0,0,0.08);
-    }
+      .section-head {
+        margin-bottom: 18px;
+      }
 
-    .keyword-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 12px;
-    }
+      .section-head h2 {
+        margin: 0 0 8px;
+        font-size: clamp(1.5rem, 2.3vw, 2.4rem);
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+      }
 
-    .tag {
-      background: #f0e4d7;
-      border: 2px solid rgba(30,29,28,0.5);
-      border-radius: 999px;
-      padding: 8px 14px;
-      font-size: 0.96rem;
-      font-weight: 700;
-      color*
-
+      .divider {
+        height: 4px;
+        background: linear-gradient(90deg, var(--gold), var(--bronze));
+        border-radius: 999px;
+        width: 120px;
+      }
+
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 18px;
+      }
+
+      .card {
+        background: var(--paper);
+        border: 3px solid var(--ink);
+        border-radius: 18px;
+        overflow: hidden;
+        box-shadow: 0 10px 0 rgba(0,0,0,0.08);
+      }
+
+      .card-header {
+        background: linear-gradient(90deg, var(--gold), var(--gold-deep));
+        padding: 14px 16px;
+        border-bottom: 3px solid var(--ink);
+        font-weight: 900;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+      }
+
+      .card-body {
+        padding: 18px 18px 20px;
+        background: #f7f1ea;
+      }
+
+      .card-body p,
+      .card-body li {
+        font-size: 1rem;
+      }
+
+      .card-body ul {
+        margin: 0;
+        padding-left: 18px;
+      }
+
+      .compare-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 18px;
+      }
+
+      .compare-box {
+        background: var(--paper);
+        border: 3px solid var(--ink);
+        border-radius: 18px;
+        box-shadow: 0 10px 0 rgba(0,0,0,0.08);
+      }
+
+      .compare-box h3 {
+        margin: 0;
+        padding: 14px 18px;
+        background: linear-gradient(90deg, #e7d4b2, #d7b586);
+        border-bottom: 3px solid var(--ink);
+      }
+
+      .compare-box ul {
+        margin: 0;
+        padding: 18px 20px 20px 34px;
+        line-height: 1.9;
+      }
+
+      .glossary {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 16px;
+      }
+
+      .term {
+        background: #f9f3ee;
+        border: 3px solid var(--ink);
+        border-radius: 16px;
+        padding: 18px;
+        box-shadow: 0 8px 0 rgba(0,0,0,0.06);
+      }
+
+      .term strong {
+        display: block;
+        font-size: 1.1rem;
+        margin-bottom: 8px;
+      }
+
+      .quiz-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+
+      .quiz {
+        background: #f9f2ea;
+        border: 3px solid var(--ink);
+        border-radius: 16px;
+        padding: 18px;
+        box-shadow: 0 8px 0 rgba(0,0,0,0.06);
+      }
+
+      .quiz h3 {
+        margin-top: 0;
+        margin-bottom: 12px;
+      }
+
+      .options {
+        display: grid;
+        gap: 8px;
+      }
+
+      .option {
+        width: 100%;
+        text-align: left;
+        padding: 10px 12px;
+        border-radius: 10px;
+        border: 2px solid rgba(29, 26, 23, 0.4);
+        background: #fff;
+        font-size: 0.96rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: background 0.2s ease;
+      }
+
+      .option:hover {
+        background: #f0e5d8;
+      }
+
+      .reveal {
+        margin-top: 12px;
+        border: 2px solid var(--ink);
+        background: var(--gold);
+        color: var(--ink);
+        font-weight: 800;
+        border-radius: 10px;
+        padding: 10px 14px;
+        cursor: pointer;
+      }
+
+      .answer {
+        display: none;
+        margin-top: 12px;
+        background: #e8f0eb;
+        border: 2px solid rgba(45, 95, 72, 0.7);
+        border-radius: 10px;
+        padding: 10px 12px;
+        color: var(--green);
+        font-weight: 700;
+      }
+
+      .answer.show {
+        display: block;
+      }
+
+      .timeline {
+        position: relative;
+        margin-top: 24px;
+        padding-left: 28px;
+        border-left: 4px solid var(--bronze);
+      }
+
+      .time-item {
+        position: relative;
+        margin-bottom: 18px;
+        padding: 14px 16px 12px 18px;
+        background: var(--paper);
+        border: 3px solid var(--ink);
+        border-radius: 14px;
+        box-shadow: 0 8px 0 rgba(0,0,0,0.06);
+      }
+
+      .time-item::before {
+        content: "";
+        position: absolute;
+        left: -37px;
+        top: 18px;
+        width: 18px;
+        height: 18px;
+        background: var(--gold);
+        border: 3px solid var(--ink);
+        border-radius: 50%;
+      }
+
+      .year {
+        font-size: 1.2rem;
+        font-weight: 900;
+        color: var(--bronze);
+      }
+
+      .source-list {
+        display: grid;
+        gap: 10px;
+      }
+
+      .source {
+        background: #f8f1e8;
+        border: 3px solid var(--ink);
+        border-radius: 14px;
+        padding: 14px 16px;
+      }
+
+      footer {
+        margin-top: 40px;
+        padding: 20px 12px 10px;
+        text-align: center;
+        color: var(--muted);
+        font-weight: 700;
+      }
+
+      @media (max-width: 760px) {
+        .compare-grid,
+        .quiz-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .nav {
+          justify-content: flex-start;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header class="topbar">
+        <nav class="nav" aria-label="Navigimi kryesor">
+          <a href="#arab">Qytetërimi Arab</a>
+          <a href="#holy-roman">Perandoria e Shenjtë Romake</a>
+          <a href="#england">Monarkia Angleze</a>
+          <a href="#france">Monarkia Franceze</a>
+          <a href="#relations">Marrëdhëniet &amp; Kryqëzatat</a>
+          <a href="#ottoman">Perandoria Osmane</a>
+          <a href="#glossary">Fjalori</a>
+          <a href="#timeline">Linja Kohore</a>
+          <a href="#sources">Burimet</a>
+        </nav>
+      </header>
+
+      <section class="hero">
+        <span class="eyebrow">Historia e Evropës dhe Lindjes</span>
+        <h1>Monarkitë, qytetërimet dhe zhvillimi i shteteve</h1>
+        <p class="lead">
+          Një udhëtim nëpër qytetërimin arab, Perandorinë e Shenjtë Romake,
+          monarkitë angleze dhe franceze, kryqëzatat dhe Perandorinë Osmane.
+          Këtu janë përmbledhur konceptet kryesore, fjalori, linja kohore dhe
+          kuizet ndërveprues për të bërë historinë më të kuptueshme.
+        </p>
+      </section>
+
+      <section id="arab" class="section">
+        <div class="section-head">
+          <h2>🏛️ Tema 1: Qytetërimi Arab dhe Kalifatet</h2>
+          <div class="divider"></div>
+        </div>
+
+        <div class="cards">
+          <article class="card">
+            <div class="card-header">Mjedisi dhe jeta e beduinëve</div>
+            <div class="card-body">
+              <p>
+                Gadishulli Arabik dominohej nga shkretëtira. Arabët nomadë quheshin
+                <strong>beduinë</strong> dhe lëviznin me karvanë deveje duke u mbështetur
+                te oazet për bujqësi.
+              </p>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-header">Lindja e Islamit</div>
+            <div class="card-body">
+              <p>
+                Islami u përhap nga Profeti Muhamed (570–632). Pesë shtyllat e Islamit
+                përfshijnë besimin te Allahu, faljen 5 herë në ditë, bujarinë ndaj të
+                varfërve, agjërimin e Ramazanit dhe pelegrinazhin në Mekë. Viti 622
+                (Hixhra) shënon fillimin e kalendarit mysliman.
+              </p>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-header">Kalifatet dhe përçarja</div>
+            <div class="card-body">
+              <p>
+                Pas vdekjes së Muhamedit u formua Kalifati. Gjatë viteve 632–661 ndodhi
+                përçarja mes shiitëve dhe sunitëve. Shiitët kërkonin pasardhës të
+                drejtpërdrejtë të profetit, ndërsa sunitët besonin se kalifi mund të
+                zgjidhej ndërmjet myslimanëve të devotshëm.
+              </p>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-header">Arritjet kulturore dhe shkencore</div>
+            <div class="card-body">
+              <p>
+                Arabët përkthyen veprat e antikitetit greko-romak, sollën numrat arabë
+                dhe zero-n, zhvilluan gjeometrinë, trigonometrinë, astronominë,
+                mjekësinë, arkitekturën dhe letërsinë. Veprat si <em>1001 Netë</em>
+                shfaqen si shembuj të pasurisë kulturore të kësaj periudhe.
+              </p>
+            </div>
+          </article>
+        </div>
+
+        <div class="section" style="margin-top: 20px;">
+          <div class="section-head">
+            <h3>Kuiz interaktiv</h3>
+          </div>
+          <div class="quiz-grid">
+            <div class="quiz">
+              <h3>1. Çfarë është Hixhra?</h3>
+              <div class="options">
+                <button class="option">Fillimi i kalendarit mysliman</button>
+                <button class="option">Korrupsioni i Kuranit</button>
+                <button class="option">Viti i lindjes së Muhamedit</button>
+              </div>
+              <button class="reveal">Shfaq përgjigjen</button>
+              <div class="answer">Përgjigja e saktë: <strong>Fillimi i kalendarit mysliman</strong>.</div>
+            </div>
+
+            <div class="quiz">
+              <h3>2. Kush ishte kalifi?</h3>
+              <div class="options">
+                <button class="option">Udhëheqësi i kishës katolike</button>
+                <button class="option">Udhëheqësi i komunitetit mysliman</button>
+                <button class="option">Mbreti i Francës</button>
+              </div>
+              <button class="reveal">Shfaq përgjigjen</button>
+              <div class="answer">Përgjigja e saktë: <strong>Udhëheqësi i komunitetit mysliman</strong>.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="holy-roman" class="section">
+        <div class="section-head">
+          <h2>👑 Tema 2: Perandoria e Shenjtë Romake</h2>
+          <div class="divider"></div>
+        </div>
+
+        <div class="cards">
+          <article class="card">
+            <div class="card-header">Krijimi dhe Karli i Madh</div>
+            <div class="card-body">
+              <p>
+                U krijua në Evropën Perëndimore nga frankët. Mbreti Pepini i Shkurtër u
+                mbështet nga Kisha. Djali i tij, Karli i Madh (768–814), u kurorëzua nga
+                Papa Leoni III në vitin 800 si “Perandor i Romakëve” dhe u quajt “Babai i
+                Europës”.
+              </p>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-header">Organizimi dhe dobësimi</div>
+            <div class="card-body">
+              <p>
+                Karli e ndau vendin në 300 njësi administrative (konté ose dukate). Pas
+                vdekjes së tij, perandoria u dobësua sepse mungonin institucionet e
+                centralizuara, dhe u hap rruga feudalizmit. <strong>Vasalët</strong>
+                merrnin toka në këmbim të shërbimit ushtarak, ndërsa bujkrobërit punonin tokën.
+              </p>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-header">Rinovimi (962)</div>
+            <div class="card-body">
+              <p>
+                Në vitin 962, Otoni I u kurorëzua nga papa, duke rikrijuar Perandorinë e
+                Shenjtë Romake nën mbretërit gjermanë, e cila mbeti e decentralizuar.
+              </p>
+            </div>
+          </article>
+        </div>
+
+        <div class="section" style="margin-top: 20px;">
+          <div class="quiz-grid">
+            <div class="quiz">
+              <h3>1. Si u kurorëzua Karli i Madh?</h3>
+              <div class="options">
+                <button class="option">Nga Papa Leoni III</button>
+                <button class="option">Nga sulltani i Osmanëve</button>
+                <button class="option">Nga mbreti i Anglisë</button>
+              </div>
+              <button class="reveal">Shfaq përgjigjen</button>
+              <div class="answer">Përgjigja e saktë: <strong>Nga Papa Leoni III</strong>.</div>
+            </div>
+
+            <div class="quiz">
+              <h3>2. Çfarë është feudalizmi?</h3>
+              <div class="options">
+                <button class="option">Sistemi ku vasalët merrnin toka në këmbim të shërbimit ushtarak</button>
+                <button class="option">Forma e parë e demokracisë</button>
+                <button class="option">Ekonomia e romakëve</button>
+              </div>
+              <button class="reveal">Shfaq përgjigjen</button>
+              <div class="answer">Përgjigja e saktë: <strong>Sistemi ku vasalët merrnin toka në këmbim të shërbimit ushtarak</strong>.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-head">
+          <h2>🔄 1. Tranzicioni drejt qytetërimit modern</h2>
+          <div class="divider"></div>
+        </div>
+        <div class="cards">
+          <article class="card">
+            <div class="card-header">Përmirësimet në bujqësi</div>
+            <div class="card-body">
+              <p>Futja e veglave më të mira dhe metodave të reja solli rritjen e prodhimit dhe teprica ushqimore.</p>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-header">Rritja e popullsisë</div>
+            <div class="card-body">
+              <p>Ushqimi i bollshëm rriti numrin e banorëve dhe ringjalli qytetet pranë rrugëve tregtare dhe kështjellave.</p>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-header">Borgjezija dhe ekonomia monetare</div>
+            <div class="card-body">
+              <p>U fuqizuan tregtarët dhe zejtarët e pasur, u përhap përdorimi i parasë dhe kredisë, dhe lindi borgjezia.</p>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-header">Forcimi i mbretërive</div>
+            <div class="card-body">
+              <p>Mbretërit kufizuan pushtetin e feudalëve të lokalëve dhe bashkuan territore duke krijuar komb-shtetet e para.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="england" class="section">
+        <div class="section-head">
+          <h2>🇬🇧 Tema 3: Monarkia Angleze</h2>
+          <div class="divider"></div>
+        </div>
+
+        <div class="cards">
+          <article class="card">
+            <div class="card-header">Pushtimi Norman</div>
+            <div class="card-body">
+              <p>Pushtimi Norman (1066) solli qendërzim të pushtetit, regjistrimin e pasurive dhe ndarjen e vendit në konté.</p>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-header">Common Law</div>
+            <div class="card-body">
+              <p>Gjatë sundimit të Henri II u vendos sistemi gjyqësor uniform, duke krijuar të drejtën e përgjithshme ose Common Law.</p>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-header">Magna Carta</div>
+            <div class="card-body">
+              <p>Mbreti Xhoni “Pa Tokë” firmosi Karta e Madhe të Lirive (1215), duke pranuar se taksat nuk mund të vendoseshin pa pëlqimin e Këshillit të Madh.</p>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-header">Parlamenti</div>
+            <div class="card-body">
+              <p>Mbreti Eduard I thirri Këshillin e Madh dhe përfaqësuesit e qyteteve, duke krijuar Parlamentin, i ndarë më vonë në Dhomën e Lordëve dhe Dhomën e Komunave.</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="section" style="margin-top: 20px;">
+          <div class="quiz-grid">
+            <div class="quiz">
+              <h3>1. Kush e nënshkruajti Kartën e Madhe të Lirive?</h3>
+              <div class="options">
+                <button class="option">Mbreti Xhoni</button>
+                <button class="option">Karli i Madh</button>
+                <button class="option">Seladini</button>
+              </div>
+              <button class="reveal">Shfaq përgjigjen</button>
+              <div class="answer">Përgjigja e saktë: <strong>Mbreti Xhoni</strong>.</div>
+            </div>
+
+            <div class="quiz">
+              <h3>2. Cili ishte ndryshimi kryesor mes Anglisë dhe Francës?</h3>
+              <div class="options">
+                <button class="option">Anglia zhvilloi monarki parlamentare, Franca monarki absolute</button>
+                <button class="option">Franca kishte Parlament, Anglia jo</button>
+                <button class="option">Të dyja kishin të njëjtin sistem</button>
+              </div>
+              <button class="reveal">Shfaq përgjigjen</button>
+              <div class="answer">Përgjigja e saktë: <strong>Anglia zhvilloi monarki parlamentare, Franca monarki absolute</strong>.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="france" class="section">
+        <div class="section-head">
+          <h2>🇫🇷 Tema 4: Monarkia Franceze</h2>
+          <div class="divider"></div>
+        </div>
+
+        <div class="cards">
+          <article class="card">
+            <div class="card-header">Zgjerimi dhe qendërzimi</div>
+            <div class="card-body">
+              <p>Mbretërit francezë, si Filipi II August, forcuan pozitat e tyre duke marrë territore të reja dhe duke kufizuar fisnikët e fuqishëm.</p>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-header">Përfaqësia e Përgjithshme</div>
+            <div class="card-body">
+              <p>Filipi IV organizoi “Përfaqësinë e Përgjithshme”, e cila përbëhej nga kleri, fisnikëria dhe popullsia e qyteteve. Ajo ishte e ndryshme nga parlamenti anglez.</p>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-header">Lufta Njëqindvjeçare</div>
+            <div class="card-body">
+              <p>Konflikti 1337–1453 kundër Anglisë u ngrit me mbështetjen e Zhan d’Ark dhe çoi në dëbimin e anglezëve nga Franca.</p>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-header">Karakteristika kryesore</div>
+            <div class="card-body">
+              <p>Franca u zhvillua drejt monarkisë absolute, ku mbreti fitonte pushtet e mëtejshëm pas luftërave dhe përplasjeve me aristokracinë.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="relations" class="section">
+        <div class="section-head">
+          <h2>🌍 Tema 5: Marrëdhëniet ndërmjet Qytetërimit Arab dhe Europian</h2>
+          <div class="divider"></div>
+        </div>
+
+        <div class="cards">
+          <article class="card">
+            <div class="card-header">Zgjerimi dhe ndikimi</div>
+            <div class="card-body">
+              <p>Në vitin 711 arabët arritën në Gadishullin Iberik; Kordova u bë qendër e rëndësishme kulturore. Arabët ndihmuan në ruajtjen dhe transmetimin e filozofisë greko-romake.</p>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-header">Kryqëzatat</div>
+            <div class="card-body">
+              <p>1096–1204 ishin ekspedita ushtarake të organizuara nga Kisha Katolike për të çliruar Tokën e Shenjtë nga turqit selxhukë. Ato shënuan zhvillime të rëndësishme tregtare dhe kulturore.</p>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-header">Përfitimet e ndërsjella</div>
+            <div class="card-body">
+              <p>Kryqëzatat rritën tregtinë ndërmjet Lindjes dhe Perëndimit dhe nxiti shkëmbimin e njohurive teknike dhe kulturore.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="ottoman" class="section">
+        <div class="section-head">
+          <h2>🌙 Tema 6: Perandoria Osmane</h2>
+          <div class="divider"></div>
+        </div>
+
+        <div class="cards">
+          <article class="card">
+            <div class="card-header">Krijimi dhe zgjerimi</div>
+            <div class="card-body">
+              <p>U themelua në vitin 1299 nga emirati i Osmanit. Osmanët u dalluan për organizim të fortë ushtarak dhe u zgjeruan në Ballkan dhe të tjera rajone.</p>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-header">Marrja e Kostandinopojës</div>
+            <div class="card-body">
+              <p>Sulltan Mehmeti II pushtoi Kostandinopojën (1453), duke e kthyer në kryeqytetin e një perandorie që shtrihej në tri kontinente.</p>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-header">Qeverisja dhe ushtria</div>
+            <div class="card-body">
+              <p>Perandoria drejtohej nga sulltani me pushtet absolut. Ligjet bazoheshin në Sheriat dhe Kanunametë. Ushtria përbëhej nga sipahinj dhe jeniçerë.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-head">
+          <h2>📊 Krahëzim i monarkive: Anglia vs Franca</h2>
+          <div class="divider"></div>
+        </div>
+        <div class="compare-grid">
+          <div class="compare-box">
+            <h3>Anglia</h3>
+            <ul>
+              <li>Karta e Madhe (1215)</li>
+              <li>Krijimi i Parlamentit</li>
+              <li>Monarki Parlamentare</li>
+            </ul>
+          </div>
+          <div class="compare-box">
+            <h3>Franca</h3>
+            <ul>
+              <li>Përfaqësia e Përgjithshme</li>
+              <li>Qendërzimi i pushtetit pas Luftës Njëqindvjeçare</li>
+              <li>Monarki Absolute</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="glossary" class="section">
+        <div class="section-head">
+          <h2>📖 Fjalori Digjital</h2>
+          <div class="divider"></div>
+        </div>
+
+        <div class="glossary">
+          <div class="term">
+            <strong>Beduinë</strong>
+            Nomadë të shkretëtirës, të cilët lëviznin me karvanë deveje dhe mbështeteshin tek oazet.
+          </div>
+          <div class="term">
+            <strong>Vasali</strong>
+            Fisnik që merr tokë nga zotëria në këmbim të shërbimit ushtarak.
+          </div>
+          <div class="term">
+            <strong>Common Law</strong>
+            E drejta e përgjithshme zakonore dhe gjyqësore në Angli.
+          </div>
+          <div class="term">
+            <strong>Sheriati</strong>
+            Ligji islam i mbështetur në Kuran.
+          </div>
+          <div class="term">
+            <strong>Jeniçerët</strong>
+            Ushtarë të zgjedhur osmanë.
+          </div>
+          <div class="term">
+            <strong>Esnafet</strong>
+            Organizime zejtarësh dhe tregtarësh.
+          </div>
+          <div class="term">
+            <strong>Borgjezia</strong>
+            Shtresa e tregtarëve dhe zejtarëve të pasur të qyteteve.
+          </div>
+          <div class="term">
+            <strong>Monarki absolute</strong>
+            Sistemi ku pushteti i mbretit është i pavarur dhe pothuajse i pakufizuar.
+          </div>
+          <div class="term">
+            <strong>Monarki parlamentare</strong>
+            Monarki e cila funksionon nën ligj dhe me kontrollin e parlamentit.
+          </div>
+          <div class="term">
+            <strong>Komb-shtet</strong>
+            Shtet i centralizuar me një territor, popull dhe qeveri të përbashkët.
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-head">
+          <h2>🧠 Kuize interaktive</h2>
+          <div class="divider"></div>
+        </div>
+        <div class="quiz-grid">
+          <div class="quiz">
+            <h3>Pyetje 1: Cili dokument historik vendosi që mbreti nuk mund të vendoste taksa pa pëlqimin e Këshillit të Madh?</h3>
+            <div class="options">
+              <button class="option">Magna Carta</button>
+              <button class="option">Kanuni i Lekë Dukagjinit</button>
+              <button class="option">Krishtlindja</button>
+            </div>
+            <button class="reveal">Shfaq përgjigjen</button>
+            <div class="answer">Përgjigja e saktë: <strong>Magna Carta</strong>.</div>
+          </div>
+
+          <div class="quiz">
+            <h3>Pyetje 2: Cila ishte diferenca kryesore mes Parlamentit Anglez dhe Përfaqësisë së Përgjithshme në Francë?</h3>
+            <div class="options">
+              <button class="option">Parlamenti kufizoi pushtetin e mbretit, ndërsa Përfaqësia franceze mblidhej vetëm kur e thërriste mbreti</button>
+              <button class="option">Franca nuk kishte mbret</button>
+              <button class="option">Anglia nuk kishte të drejtën e taksave</button>
+            </div>
+            <button class="reveal">Shfaq përgjigjen</button>
+            <div class="answer">Përgjigja e saktë: <strong>Parlamenti kufizoi pushtetin e mbretit, ndërsa Përfaqësia franceze mblidhej vetëm kur e thërriste mbreti</strong>.</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="timeline" class="section">
+        <div class="section-head">
+          <h2>⏳ Linja e kohës</h2>
+          <div class="divider"></div>
+        </div>
+
+        <div class="timeline">
+          <div class="time-item"><span class="year">622</span> – Hixhra: fillimi i kalendarit mysliman.</div>
+          <div class="time-item"><span class="year">800</span> – Kurorëzimi i Karlit të Madh.</div>
+          <div class="time-item"><span class="year">1066</span> – Pushtimi Norman i Anglisë.</div>
+          <div class="time-item"><span class="year">1215</span> – Firmosja e Magna Carta.</div>
+          <div class="time-item"><span class="year">1299</span> – Themelimi i Perandorisë Osmane.</div>
+          <div class="time-item"><span class="year">1453</span> – Rënia e Kostandinopojës.</div>
+        </div>
+      </section>
+
+      <section id="sources" class="section">
+        <div class="section-head">
+          <h2>🔗 Seksioni i Burimeve</h2>
+          <div class="divider"></div>
+        </div>
+        <div class="source-list">
+          <div class="source">
+            <strong>Libri shkollor i historisë</strong> – Teksti bazë i historisë evropiane dhe mesjetare, i përdorur si referencë për periudhat e shpjeguara në këtë faqe.
+          </div>
+          <div class="source">
+            <strong>Autore dhe studiues</strong> – Materialet dhe përkufizimet u bazohen në autorë dhe studime të historisë mesjetare, islame, evropiane dhe perandorive të hershme.
+          </div>
+          <div class="source">
+            <strong>Referime tematike</strong> – Qytetërimi arab, Perandoria e Shenjtë Romake, Anglia, Franca, kryqëzatat dhe Perandoria Osmane janë trajtuar sipas përmbajtjeve themelore të historisë shkollore.
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        Përmbledhje e historisë mesjetare • Monarkitë dhe qytetërimet • Burimet dhe kuizet e integruara
+      </footer>
+    </div>
+
+    <script>
+      const reveals = document.querySelectorAll('.reveal');
+      reveals.forEach((button) => {
+        button.addEventListener('click', () => {
+          const answer = button.nextElementSibling;
+          answer.classList.add('show');
+          button.disabled = true;
+          button.textContent = 'Përgjigja u shfaq';
+        });
+      });
+    </script>
+  </body>
+</html>
