@@ -3,23 +3,22 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Historia e Mesjetës dhe Monarkive</title>
+    <title>Historia e Mesjetës</title>
     <style>
       :root {
-        --bg: #f4efe7;
-        --paper: #fffdfb;
-        --paper-soft: #f7f0ea;
-        --gold: #d9b17a;
-        --gold-deep: #b6804a;
-        --bronze: #8d5a2d;
-        --ink: #1f1a17;
-        --muted: #5f554f;
-        --green: #2d654f;
-        --green-soft: #e7f1ec;
-        --red: #8f3d3d;
-        --red-soft: #f5e4e3;
-        --shadow: rgba(29, 26, 23, 0.12);
-        --line: rgba(31, 26, 23, 0.22);
+        --bg: #f4efe8;
+        --paper: #fffdf9;
+        --paper-soft: #f7efe4;
+        --gold: #d6b07c;
+        --gold-deep: #ad6d32;
+        --bronze: #7e4d2f;
+        --ink: #1d1a17;
+        --muted: #5e544f;
+        --green: #285f47;
+        --green-soft: #eaf4ee;
+        --red: #8b3d3d;
+        --red-soft: #f7e0e0;
+        --shadow: rgba(24, 18, 14, 0.12);
       }
 
       * { box-sizing: border-box; }
@@ -27,103 +26,114 @@
       body {
         margin: 0;
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-        color: var(--ink);
         background:
-          radial-gradient(circle at top, rgba(217, 177, 122, 0.25), transparent 26%),
-          linear-gradient(180deg, #f5f0ea 0%, #fbf7f3 100%);
+          radial-gradient(circle at top left, rgba(214,176,124,0.18), transparent 24%),
+          radial-gradient(circle at bottom right, rgba(173,109,50,0.12), transparent 30%),
+          linear-gradient(180deg, #f6f1ea 0%, #fdfaf6 100%);
+        color: var(--ink);
         line-height: 1.7;
       }
 
       a { color: inherit; text-decoration: none; }
-      img { max-width: 100%; display: block; }
+      img { display: block; max-width: 100%; }
+      button, input { font: inherit; }
 
       .container {
-        max-width: 1220px;
+        max-width: 1180px;
         margin: 0 auto;
-        padding: 18px 18px 72px;
+        padding: 18px 18px 80px;
       }
 
-      .site-header {
+      .topbar {
         position: sticky;
-        top: 12px;
-        z-index: 20;
-        background: rgba(255, 253, 251, 0.85);
-        border: 3px solid var(--ink);
-        border-radius: 22px;
-        box-shadow: 0 8px 0 rgba(0,0,0,0.08);
-        backdrop-filter: blur(18px);
+        top: 10px;
+        z-index: 50;
+        background: rgba(255, 253, 250, 0.9);
+        border: 2px solid var(--ink);
+        border-radius: 20px;
+        box-shadow: 0 8px 0 rgba(0,0,0,0.07);
+        backdrop-filter: blur(10px);
       }
 
       .nav {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        gap: 10px;
-        padding: 16px 18px;
+        gap: 8px;
+        padding: 14px;
       }
 
       .nav a {
         padding: 9px 14px;
+        background: #f7efe8;
+        border: 2px solid rgba(29,26,23,0.6);
         border-radius: 999px;
-        border: 2px solid rgba(31,26,23,0.65);
-        background: #f6ebdf;
-        font-size: 0.88rem;
+        font-size: 0.82rem;
         font-weight: 800;
+        letter-spacing: 0.03em;
         transition: transform 0.2s ease, box-shadow 0.2s ease;
       }
 
       .nav a:hover {
         transform: translateY(-2px);
-        box-shadow: 0 8px 18px rgba(29, 26, 23, 0.08);
+        box-shadow: 0 6px 12px rgba(29,26,23,0.08);
       }
 
       .hero {
-        margin-top: 28px;
-        padding: 36px 24px 26px;
-        background: linear-gradient(135deg, rgba(255,255,255,0.96), rgba(245,233,218,0.98));
-        border: 3px solid var(--ink);
-        border-radius: 26px;
-        box-shadow: 0 14px 0 rgba(0,0,0,0.08);
         position: relative;
+        margin-top: 28px;
+        padding: 32px 24px 26px;
+        background: linear-gradient(135deg, rgba(255,255,255,0.96), rgba(246,233,218,0.97));
+        border: 3px solid var(--ink);
+        border-radius: 28px;
+        box-shadow: 0 14px 0 rgba(0,0,0,0.07);
         overflow: hidden;
       }
 
-      .hero::after {
+      .hero::before {
         content: "";
         position: absolute;
-        width: 300px;
-        height: 300px;
-        border: 3px solid rgba(153, 106, 62, 0.25);
+        width: 340px;
+        height: 340px;
         border-radius: 50%;
-        right: -80px;
-        top: -80px;
+        border: 2px solid rgba(167,112,60,0.2);
+        right: -100px;
+        top: -110px;
+        animation: pulseGlow 6s ease-in-out infinite;
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.5fr 0.8fr;
+        gap: 20px;
+        align-items: center;
       }
 
       .badge {
         display: inline-block;
         padding: 8px 12px;
         border-radius: 999px;
+        background: #f0e0c7;
         border: 2px solid var(--ink);
-        background: #efe1c9;
-        font-size: 0.78rem;
-        letter-spacing: 0.14em;
+        font-size: 0.72rem;
+        letter-spacing: 0.12em;
         text-transform: uppercase;
         font-weight: 900;
       }
 
       h1 {
         margin: 18px 0 12px;
-        font-size: clamp(2.1rem, 4vw, 4rem);
-        line-height: 1.08;
+        font-size: clamp(2.2rem, 4vw, 4rem);
+        line-height: 1.06;
         letter-spacing: 0.05em;
         text-transform: uppercase;
       }
 
       .lead {
-        max-width: 900px;
+        max-width: 760px;
         margin: 0;
-        font-size: 1.12rem;
         color: var(--muted);
+        font-size: 1.09rem;
       }
 
       .hero-actions {
@@ -138,48 +148,56 @@
         align-items: center;
         justify-content: center;
         padding: 12px 18px;
-        border: 3px solid var(--ink);
         border-radius: 14px;
+        border: 3px solid var(--ink);
         font-weight: 900;
-        transition: transform 0.22s ease, box-shadow 0.22s ease;
-        box-shadow: 0 6px 0 rgba(0,0,0,0.08);
+        box-shadow: 0 6px 0 rgba(0,0,0,0.07);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
       }
 
       .btn:hover {
-        transform: translateY(-2px);
+        transform: translateY(-2px) scale(1.01);
       }
 
-      .btn-primary {
+      .btn.primary {
         background: linear-gradient(135deg, var(--gold), var(--gold-deep));
       }
 
-      .btn-secondary {
-        background: #f9f1ea;
+      .btn.secondary {
+        background: #f8f1ea;
       }
 
-      .hero-stats {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-        gap: 12px;
-        margin-top: 22px;
-      }
-
-      .stat {
-        background: rgba(255,255,255,0.7);
+      .hero-side {
+        position: relative;
+        background: rgba(255,255,255,0.78);
         border: 3px solid var(--ink);
-        border-radius: 14px;
-        padding: 12px 14px;
-        text-align: center;
+        border-radius: 18px;
+        box-shadow: 0 8px 0 rgba(0,0,0,0.06);
+        padding: 18px;
+        animation: floatCard 4s ease-in-out infinite;
       }
 
-      .stat strong {
-        font-size: clamp(1.2rem, 2.2vw, 2rem);
-        display: block;
+      .mini-stack {
+        display: grid;
+        gap: 10px;
       }
 
-      .stat span {
-        color: var(--muted);
-        font-weight: 700;
+      .mini-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 12px;
+        background: #f8f0e7;
+        border: 2px solid rgba(29,26,23,0.5);
+        border-radius: 12px;
+      }
+
+      .mini-item .dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: var(--gold);
+        border: 2px solid var(--ink);
       }
 
       .section {
@@ -191,35 +209,37 @@
       }
 
       .eyebrow {
-        font-size: 0.8rem;
-        font-weight: 900;
-        letter-spacing: 0.13em;
+        font-size: 0.76rem;
         text-transform: uppercase;
+        letter-spacing: 0.14em;
+        font-weight: 900;
         color: var(--bronze);
       }
 
       .section-head h2 {
         margin: 8px 0 0;
-        font-size: clamp(1.7rem, 2.5vw, 2.6rem);
-        text-transform: uppercase;
+        font-size: clamp(1.7rem, 2.3vw, 2.7rem);
         letter-spacing: 0.04em;
+        text-transform: uppercase;
       }
 
       .divider {
-        width: 120px;
+        width: 110px;
         height: 4px;
         margin-top: 12px;
-        background: linear-gradient(90deg, var(--gold), var(--bronze));
         border-radius: 999px;
+        background: linear-gradient(90deg, var(--gold), var(--bronze));
       }
 
-      .theme-grid,
-      .glossary-grid,
-      .facts-grid,
+      .themes-grid,
+      .fun-grid,
       .compare-grid,
+      .glossary-grid,
+      .timeline-grid,
       .quiz-grid,
       .tf-grid,
-      .short-grid {
+      .short-grid,
+      .stat-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         gap: 18px;
@@ -227,112 +247,115 @@
 
       .theme-card,
       .fact-card,
+      .compare-card,
       .term,
       .quiz-card,
-      .compare-card,
-      .qr-card,
-      .source-card,
       .tf-card,
-      .short-card {
-        background: rgba(255,255,255,0.92);
+      .short-card,
+      .source-card,
+      .qr-card {
+        background: rgba(255,255,255,0.94);
         border: 3px solid var(--ink);
-        border-radius: 20px;
-        box-shadow: 0 10px 0 rgba(0,0,0,0.08);
+        border-radius: 18px;
+        box-shadow: 0 10px 0 rgba(0,0,0,0.07);
         overflow: hidden;
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
       }
 
       .theme-card:hover,
       .fact-card:hover,
-      .term:hover,
       .compare-card:hover,
-      .source-card:hover,
+      .term:hover,
+      .quiz-card:hover,
       .tf-card:hover,
-      .short-card:hover {
+      .short-card:hover,
+      .source-card:hover {
         transform: translateY(-4px);
-        transition: transform 0.25s ease;
+        box-shadow: 0 14px 0 rgba(0,0,0,0.07);
       }
 
-      .card-top {
+      .theme-head {
         display: flex;
         align-items: center;
         gap: 12px;
-        padding: 16px 18px 14px;
-        background: linear-gradient(90deg, #eedbb6, #dcb17c);
+        padding: 16px 18px;
+        background: linear-gradient(90deg, #ebd8b1, #d7b17a);
         border-bottom: 3px solid var(--ink);
         font-weight: 900;
-        text-transform: uppercase;
         letter-spacing: 0.04em;
+        text-transform: uppercase;
+        cursor: pointer;
       }
 
-      .icon-bubble {
+      .icon-wrap {
         width: 42px;
         height: 42px;
-        min-width: 42px;
         display: grid;
         place-items: center;
         border-radius: 12px;
         border: 2px solid var(--ink);
-        background: rgba(255,255,255,0.68);
-        font-size: 1.35rem;
+        background: rgba(255,255,255,0.72);
+        font-size: 1.3rem;
       }
 
-      .card-body {
-        padding: 18px 18px 20px;
-        background: var(--paper-soft);
+      .theme-body {
+        padding: 18px;
+        background: #f9f1e7;
       }
 
-      .card-body p,
-      .card-body li {
+      .theme-body p {
         margin: 0;
-        font-size: 1.02rem;
         color: var(--muted);
       }
 
-      .card-body ul {
-        margin: 0;
-        padding-left: 18px;
+      .theme-info {
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+        transition: max-height 0.35s ease, opacity 0.25s ease, margin 0.25s ease;
+        margin-top: 0;
       }
 
-      .compare-card h3,
-      .quiz-card h3,
-      .source-card h3,
-      .qr-card h3,
-      .tf-card h3,
-      .short-card h3 {
-        margin: 0;
-        font-size: 1.12rem;
-        letter-spacing: 0.04em;
-        text-transform: uppercase;
+      .theme-card.open .theme-info {
+        max-height: 220px;
+        opacity: 1;
+        margin-top: 12px;
       }
 
+      .theme-info p {
+        margin: 0;
+        padding: 12px 14px;
+        background: rgba(255,255,255,0.75);
+        border: 2px solid rgba(29,26,23,0.45);
+        border-radius: 12px;
+        color: var(--ink);
+      }
+
+      .fact-card .card-body,
       .compare-card .card-body,
-      .quiz-card .card-body,
-      .source-card .card-body,
-      .qr-card .card-body,
-      .tf-card .card-body,
-      .short-card .card-body {
-        background: #f8f2ea;
-      }
-
-      .compare-card .card-body ul {
-        margin: 0;
-        padding-left: 18px;
-        color: var(--muted);
+      .term,
+      .quiz-card .question-box,
+      .tf-card .question-box,
+      .short-card .card-body,
+      .source-card .card-body {
+        padding: 18px;
+        background: #f8f1ea;
       }
 
       .term {
         padding: 18px;
-        background: #fcf7f2;
       }
 
       .term strong {
         display: block;
-        font-size: 1.12rem;
         margin-bottom: 8px;
+        font-size: 1.06rem;
       }
 
-      .facts-grid .fact-card .card-body {
-        min-height: 170px;
+      .compare-card ul {
+        margin: 0;
+        padding-left: 18px;
+        color: var(--muted);
       }
 
       .timeline {
@@ -344,170 +367,104 @@
 
       .time-item {
         position: relative;
-        background: rgba(255,255,255,0.92);
+        background: rgba(255,255,255,0.95);
         border: 3px solid var(--ink);
         border-radius: 14px;
         margin-bottom: 18px;
-        padding: 16px 18px 14px 18px;
+        padding: 14px 16px;
         box-shadow: 0 8px 0 rgba(0,0,0,0.06);
+        animation: slideIn 0.6s ease both;
       }
 
       .time-item::before {
         content: "";
+        position: absolute;
+        left: -39px;
+        top: 18px;
         width: 18px;
         height: 18px;
         border-radius: 50%;
         background: var(--gold);
         border: 3px solid var(--ink);
-        position: absolute;
-        left: -38px;
-        top: 18px;
       }
 
       .year {
         display: inline-block;
-        color: var(--bronze);
-        font-size: 1.28rem;
-        font-weight: 900;
         margin-right: 8px;
+        color: var(--bronze);
+        font-weight: 900;
+        font-size: 1.26rem;
       }
 
-      .quiz-grid {
-        grid-template-columns: 1fr 1fr;
+      .quiz-grid,
+      .tf-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       }
 
       .quiz-card,
       .tf-card,
       .short-card {
-        background: #f9f2e9;
+        background: #faf2e8;
       }
 
-      .question-box {
-        padding: 18px 18px 14px;
+      .question-box h3 {
+        margin: 0 0 10px;
+        font-size: 1.08rem;
       }
 
       .options {
         display: grid;
-        gap: 10px;
-        margin-top: 12px;
+        gap: 9px;
       }
 
       .option,
       .tf-choice,
       .short-input {
         width: 100%;
-        text-align: left;
-        padding: 11px 12px;
-        border: 2px solid rgba(31,26,23,0.55);
+        border: 2px solid rgba(29,26,23,0.5);
         border-radius: 12px;
-        background: #fff;
-        font-size: 0.96rem;
+        background: rgba(255,255,255,0.9);
+        padding: 10px 12px;
+        text-align: left;
         font-weight: 700;
         cursor: pointer;
-        transition: all 0.2s ease;
+        transition: background 0.2s ease, transform 0.2s ease;
       }
 
       .option:hover,
-      .tf-choice:hover {
-        background: #f0e6d9;
-      }
+      .tf-choice:hover { background: #f2e5d5; }
 
       .option.correct,
-      .tf-choice.correct,
-      .short-answer-correct {
-        background: var(--green-soft);
-        border-color: rgba(45, 101, 79, 0.8);
-      }
-
+      .tf-choice.correct { background: var(--green-soft); border-color: rgba(40,94,70,0.8); }
       .option.wrong,
-      .tf-choice.wrong,
-      .short-answer-wrong {
-        background: var(--red-soft);
-        border-color: rgba(143,61,61,0.8);
-      }
+      .tf-choice.wrong { background: var(--red-soft); border-color: rgba(139,61,61,0.8); }
 
       .feedback,
       .short-feedback {
         display: none;
         margin-top: 12px;
-        padding: 10px 12px;
+        border: 2px solid rgba(29,26,23,0.35);
         border-radius: 12px;
-        border: 2px solid rgba(31,26,23,0.45);
-        background: #eef5ee;
+        padding: 10px 12px;
+        background: #edf6ef;
         color: var(--green);
         font-weight: 800;
       }
 
       .feedback.show,
-      .short-feedback.show {
-        display: block;
-      }
+      .short-feedback.show { display: block; }
 
       .quiz-total {
+        display: none;
         margin-top: 18px;
         padding: 14px 18px;
-        border-radius: 18px;
         border: 3px solid var(--ink);
-        background: linear-gradient(135deg, #f3dba8, #e2bb7a);
+        border-radius: 14px;
+        background: linear-gradient(135deg, #f6d9a1, #e4bc75);
         font-weight: 900;
-        display: none;
       }
 
-      .quiz-total.show {
-        display: block;
-      }
-
-      .qr-wrap {
-        display: flex;
-        align-items: center;
-        gap: 20px;
-        flex-wrap: wrap;
-      }
-
-      .qr-card {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 18px;
-        padding: 18px 20px;
-        background: linear-gradient(135deg, rgba(253,249,244,0.98), rgba(242,232,220,0.96));
-      }
-
-      .qr-card img {
-        width: 180px;
-        height: 180px;
-        border: 3px solid var(--ink);
-        border-radius: 18px;
-        background: #fff;
-        padding: 8px;
-      }
-
-      .source-card {
-        padding: 0;
-      }
-
-      .source-card .card-body {
-        padding: 18px;
-      }
-
-      footer {
-        margin-top: 42px;
-        text-align: center;
-        font-weight: 800;
-        color: var(--muted);
-        padding: 10px 0 0;
-      }
-
-      .reveal-on-scroll {
-        opacity: 0;
-        transform: translateY(14px);
-        transition: opacity 0.7s ease, transform 0.7s ease;
-      }
-
-      .reveal-on-scroll.visible {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      .quiz-total.show { display: block; }
 
       .short-answer-form {
         display: grid;
@@ -515,13 +472,8 @@
         margin-top: 12px;
       }
 
-      .short-input {
-        background: #fff;
-        font-weight: 600;
-      }
-
       .short-submit {
-        display: inline-block;
+        display: inline-flex;
         width: fit-content;
         padding: 10px 14px;
         border: 2px solid var(--ink);
@@ -531,27 +483,67 @@
         cursor: pointer;
       }
 
+      .qr-card {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        padding: 18px 20px;
+        background: linear-gradient(135deg, rgba(255,255,255,0.96), rgba(244,232,220,0.96));
+      }
+
+      .qr-card img {
+        width: 180px;
+        height: 180px;
+        border: 3px solid var(--ink);
+        border-radius: 16px;
+        padding: 8px;
+        background: #fff;
+      }
+
+      footer {
+        margin-top: 40px;
+        text-align: center;
+        color: var(--muted);
+        font-weight: 800;
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(18px) scale(0.985);
+        transition: opacity 0.7s ease, transform 0.7s ease;
+      }
+
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+
+      @keyframes pulseGlow {
+        0%, 100% { transform: scale(1); opacity: 0.7; }
+        50% { transform: scale(1.08); opacity: 1; }
+      }
+
+      @keyframes floatCard {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-6px); }
+      }
+
+      @keyframes slideIn {
+        from { opacity: 0; transform: translateX(-12px); }
+        to { opacity: 1; transform: translateX(0); }
+      }
+
       @media (max-width: 760px) {
-        .quiz-grid,
-        .tf-grid,
-        .short-grid {
-          grid-template-columns: 1fr;
-        }
-
-        .qr-card {
-          flex-direction: column;
-          align-items: flex-start;
-        }
-
-        .nav {
-          justify-content: flex-start;
-        }
+        .hero-grid { grid-template-columns: 1fr; }
+        .nav { justify-content: flex-start; }
+        .qr-card { flex-direction: column; align-items: flex-start; }
       }
     </style>
   </head>
   <body>
     <div class="container">
-      <header class="site-header">
+      <header class="topbar">
         <nav class="nav" aria-label="Navigimi i faqes">
           <a href="#themes">Temat</a>
           <a href="#compare">Krahasimi</a>
@@ -563,192 +555,171 @@
         </nav>
       </header>
 
-      <section class="hero reveal-on-scroll">
-        <span class="badge">Historia e Mesjetës</span>
-        <h1>Monarkitë, qytetërimet dhe zhvillimi i shteteve</h1>
-        <p class="lead">
-          Udhëtim nëpër qytetërimin arab, Perandorinë e Shenjtë Romake, monarkitë angleze
-          dhe franceze, kryqëzatat dhe Perandorinë Osmane. Këtu gjejmë shpjegime të qarta,
-          fjalor, kuize dhe një përmbledhje të plotë historike.
-        </p>
+      <section class="hero reveal">
+        <div class="hero-grid">
+          <div>
+            <span class="badge">Historia e Mesjetës</span>
+            <h1>Monarkitë, qytetërime dhe ndryshime të mëdha</h1>
+            <p class="lead">
+              Një hyrje moderne dhe e pasur vizualisht në histori: qytetërimi arab, Perandoria e Shenjtë Romake,
+              monarkitë angleze dhe franceze, kryqëzatat dhe Perandoria Osmane.
+            </p>
+            <div class="hero-actions">
+              <a href="#themes" class="btn primary">Hyr te temat</a>
+              <a href="#quiz" class="btn secondary">Provo kuizin</a>
+            </div>
+          </div>
 
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#themes">Eksploro temat</a>
-          <a class="btn btn-secondary" href="#quiz">Provo kuizin</a>
-        </div>
-
-        <div class="hero-stats">
-          <div class="stat">
-            <strong>6</strong>
-            <span>tema</span>
-          </div>
-          <div class="stat">
-            <strong>20+</strong>
-            <span>fakte</span>
-          </div>
-          <div class="stat">
-            <strong>6+</strong>
-            <span>pyetje</span>
-          </div>
-          <div class="stat">
-            <strong>1</strong>
-            <span>linjë kohore</span>
+          <div class="hero-side">
+            <div class="mini-stack">
+              <div class="mini-item"><span class="dot"></span><span>Qytetërimi Arab</span></div>
+              <div class="mini-item"><span class="dot"></span><span>Perandoria e Shenjtë Romake</span></div>
+              <div class="mini-item"><span class="dot"></span><span>Anglia dhe Franca</span></div>
+              <div class="mini-item"><span class="dot"></span><span>Kryqëzatat dhe Perandoria Osmane</span></div>
+            </div>
           </div>
         </div>
       </section>
 
-      <section id="themes" class="section reveal-on-scroll">
+      <section id="themes" class="section reveal">
         <div class="section-head">
-          <div class="eyebrow">Temat kryesore</div>
-          <h2>Historia në 6 seksione</h2>
+          <div class="eyebrow">Temat</div>
+          <h2>Temat kryesore</h2>
           <div class="divider"></div>
         </div>
 
-        <div class="theme-grid">
-          <article class="theme-card">
-            <div class="card-top">
-              <div class="icon-bubble">🏜️</div>
+        <div class="themes-grid">
+          <article class="theme-card open">
+            <div class="theme-head" data-target="arab-info">
+              <div class="icon-wrap">🏜️</div>
               <span>Qytetërimi Arab</span>
             </div>
-            <div class="card-body">
-              <p>
-                Arabët nomadë quheshin beduinë, jetuan në shkretëtirë dhe u përballën me
-                sfidat e migrimit. Islami u shfaq me Profetin Muhamed dhe u rrit me Pesë
-                Shtyllat e Islamit.
-              </p>
+            <div class="theme-body">
+              <p>Beduinët, Islami dhe kalifatet</p>
+              <div id="arab-info" class="theme-info">
+                <p>Arabët nomadë quheshin beduinë. Islami u shfaq me Profetin Muhamed, ndërsa kalifatet u zhvilluan pas vdekjes së tij.</p>
+              </div>
             </div>
           </article>
 
           <article class="theme-card">
-            <div class="card-top">
-              <div class="icon-bubble">👑</div>
+            <div class="theme-head" data-target="roman-info">
+              <div class="icon-wrap">👑</div>
               <span>Perandoria Romake</span>
             </div>
-            <div class="card-body">
-              <p>
-                Karli i Madh u kurorëzua në vitin 800. Perandoria e Shenjtë Romake u formua
-                nga frankët dhe u dobësua pas vdekjes së Karlit, duke hapur rrugën feudalizmit.
-              </p>
+            <div class="theme-body">
+              <p>Karlit i Madh, feudalizmi dhe rinovimi</p>
+              <div id="roman-info" class="theme-info">
+                <p>Karli i Madh u kurorëzua në 800. Perandoria u dobësua me kalimin e kohës, duke hapur rrugën feudalizmit dhe organizimit të ri politik.</p>
+              </div>
             </div>
           </article>
 
           <article class="theme-card">
-            <div class="card-top">
-              <div class="icon-bubble">🏰</div>
-              <span>Anglia</span>
+            <div class="theme-head" data-target="england-info">
+              <div class="icon-wrap">🏰</div>
+              <span>Monarkia Angleze</span>
             </div>
-            <div class="card-body">
-              <p>
-                Pushtimi Norman, Common Law dhe Magna Carta shënuan fillimin e kufizimit të
-                pushtetit të mbretit dhe krijimin e Parlamentit anglez.
-              </p>
-            </div>
-          </article>
-
-          <article class="theme-card">
-            <div class="card-top">
-              <div class="icon-bubble">🇫🇷</div>
-              <span>Franca</span>
-            </div>
-            <div class="card-body">
-              <p>
-                Franca e zhvilloi monarkinë absolute, duke forcuar pushtetin e mbretit dhe
-                duke zhvilluar Luftën Njëqindvjeçare kundër Anglisë.
-              </p>
+            <div class="theme-body">
+              <p>Common Law, Magna Carta dhe parlamenti</p>
+              <div id="england-info" class="theme-info">
+                <p>Pas pushtimit norman në 1066, Anglia zhvilloi sistemin e Common Law dhe më pas Magna Carta, e cila kufizoi pushtetin e mbretit.</p>
+              </div>
             </div>
           </article>
 
           <article class="theme-card">
-            <div class="card-top">
-              <div class="icon-bubble">⚔️</div>
-              <span>Kryqëzatat</span>
+            <div class="theme-head" data-target="france-info">
+              <div class="icon-wrap">🇫🇷</div>
+              <span>Monarkia Franceze</span>
             </div>
-            <div class="card-body">
-              <p>
-                Kryqëzatat (1096–1204) ishin ekspedita të organizuara nga Kisha Katolike, por
-                ato sollën edhe ndikime të gjera tregtare dhe kulturore.
-              </p>
+            <div class="theme-body">
+              <p>Qendërzimi i pushtetit dhe monarkia absolute</p>
+              <div id="france-info" class="theme-info">
+                <p>Franca e forcoi mbretin, e centralizoi pushtetin dhe u zhvillua drejt monarkisë absolute pas Luftës Njëqindvjeçare.</p>
+              </div>
             </div>
           </article>
 
           <article class="theme-card">
-            <div class="card-top">
-              <div class="icon-bubble">🕌</div>
+            <div class="theme-head" data-target="relations-info">
+              <div class="icon-wrap">⚔️</div>
+              <span>Marrëdhëniet & Kryqëzatat</span>
+            </div>
+            <div class="theme-body">
+              <p>Ndikimi i Lindjes dhe Perëndimit</p>
+              <div id="relations-info" class="theme-info">
+                <p>Kryqëzatat (1096–1204) lidhën Evropën me Lindjen dhe sollën tregti, kultura dhe shkëmbime të reja mes civilizimeve.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="theme-card">
+            <div class="theme-head" data-target="ottoman-info">
+              <div class="icon-wrap">🕌</div>
               <span>Perandoria Osmane</span>
             </div>
-            <div class="card-body">
-              <p>
-                U themelua në 1299 dhe arriti kulmin me pushtimin e Kostandinopojës në 1453,
-                duke e kthyer qytetin në qendër të një perandorie të madhe.
-              </p>
+            <div class="theme-body">
+              <p>U themelua në 1299 dhe arriti kulmin në 1453</p>
+              <div id="ottoman-info" class="theme-info">
+                <p>Perandoria Osmane u themelua nga emirati i Osmanit. Në 1453 Mehmeti II pushtoi Kostandinopojën dhe e bëri qytetin qendër të një perandorie të madhe.</p>
+              </div>
             </div>
           </article>
         </div>
       </section>
 
-      <section class="section reveal-on-scroll">
+      <section class="section reveal">
         <div class="section-head">
-          <div class="eyebrow">Fakte të shpejta</div>
-          <h2>Një përmbledhje të vetme</h2>
+          <div class="eyebrow">Fun facts</div>
+          <h2>Fakte të shkurtra</h2>
           <div class="divider"></div>
         </div>
 
-        <div class="facts-grid">
+        <div class="fun-grid">
           <article class="fact-card">
-            <div class="card-top">
-              <div class="icon-bubble">📜</div>
+            <div class="theme-head">
+              <div class="icon-wrap">📜</div>
               <span>Magna Carta</span>
             </div>
             <div class="card-body">
-              <p>
-                Në 1215, Mbreti Xhoni u detyrua të nënshkruante dokumentin që kufizoi pushtetin
-                e tij dhe lejoi vendosjen e taksave vetëm me pëlqimin e Këshillit.
-              </p>
+              <p>Dokumenti i vitit 1215 kufizoi pushtetin e mbretit dhe vendosi se taksat duhej të miratoheshin nga këshilli.</p>
             </div>
           </article>
 
           <article class="fact-card">
-            <div class="card-top">
-              <div class="icon-bubble">🧠</div>
+            <div class="theme-head">
+              <div class="icon-wrap">🧠</div>
               <span>Shkenca arabe</span>
             </div>
             <div class="card-body">
-              <p>
-                Arabët ruajtën dhe përkthyen veprat e antikitetit greko-romak dhe zhvilluan
-                gjeometrinë, trigonometrinë, astronominë dhe mjekësinë.
-              </p>
+              <p>Arabët ruajtën dhe përkthyen veprat e antikitetit greko-romak dhe zhvilluan gjeometrinë, astronominë dhe mjekësinë.</p>
             </div>
           </article>
 
           <article class="fact-card">
-            <div class="card-top">
-              <div class="icon-bubble">⚖️</div>
+            <div class="theme-head">
+              <div class="icon-wrap">⚖️</div>
               <span>Common Law</span>
             </div>
             <div class="card-body">
-              <p>
-                Në Angli u formua sistemi i drejtësisë së përgjithshme, i cili zbatoheshin në
-                mënyrë uniforme për të gjithë qytetarët.
-              </p>
+              <p>Anglia zhvilloi një sistem të drejtësisë të përgjithshme që zbatoheshin në mënyrë uniforme për të gjithë.</p>
             </div>
           </article>
 
           <article class="fact-card">
-            <div class="card-top">
-              <div class="icon-bubble">🕌</div>
-              <span>Perandoria Osmane</span>
+            <div class="theme-head">
+              <div class="icon-wrap">🕌</div>
+              <span>Osmane</span>
             </div>
             <div class="card-body">
-              <p>
-                Mehmeti II e pushtoi Kostandinopojën në 1453 dhe e bëri atë kryeqytet të një
-                perandorie të madhe me ndikim në tre kontinente.
-              </p>
+              <p>Mehmeti II e pushtoi Kostandinopojën në 1453 dhe e bëri qendrën e një perandorie të madhe.</p>
             </div>
           </article>
         </div>
       </section>
 
-      <section id="compare" class="section reveal-on-scroll">
+      <section id="compare" class="section reveal">
         <div class="section-head">
           <div class="eyebrow">Krahëzim</div>
           <h2>Anglia vs Franca</h2>
@@ -757,81 +728,57 @@
 
         <div class="compare-grid">
           <article class="compare-card">
-            <div class="card-top">
-              <div class="icon-bubble">🇬🇧</div>
+            <div class="theme-head">
+              <div class="icon-wrap">🇬🇧</div>
               <span>Anglia</span>
             </div>
             <div class="card-body">
               <ul>
                 <li>Magna Carta (1215)</li>
-                <li>Krijimi i Parlamentit</li>
-                <li>Monarki Parlamentare</li>
-                <li>Kufizim i pushtetit mbretëror</li>
+                <li>Parlamenti</li>
+                <li>Common Law</li>
+                <li>Monarki parlamentare</li>
               </ul>
             </div>
           </article>
 
           <article class="compare-card">
-            <div class="card-top">
-              <div class="icon-bubble">🇫🇷</div>
+            <div class="theme-head">
+              <div class="icon-wrap">🇫🇷</div>
               <span>Franca</span>
             </div>
             <div class="card-body">
               <ul>
                 <li>Përfaqësia e Përgjithshme</li>
                 <li>Qendërzimi i pushtetit</li>
-                <li>Monarki Absolute</li>
-                <li>Forcimi pas Luftës Njëqindvjeçare</li>
+                <li>Monarki absolute</li>
+                <li>Lufta Njëqindvjeçare</li>
               </ul>
             </div>
           </article>
         </div>
       </section>
 
-      <section id="glossary" class="section reveal-on-scroll">
+      <section id="glossary" class="section reveal">
         <div class="section-head">
           <div class="eyebrow">Fjalori</div>
-          <h2>Fjalori digjital</h2>
+          <h2>Fjalori digital</h2>
           <div class="divider"></div>
         </div>
 
         <div class="glossary-grid">
-          <article class="term">
-            <strong>Beduinë</strong>
-            Nomadë të shkretëtirës që lëviznin me karvanë deveje dhe mbështeteshin te oazet.
-          </article>
-          <article class="term">
-            <strong>Vasali</strong>
-            Fisnik që merr tokë nga zotëria në këmbim të shërbimit ushtarak ndaj tij.
-          </article>
-          <article class="term">
-            <strong>Common Law</strong>
-            E drejta e përgjithshme zakonore dhe gjyqësore në Angli.
-          </article>
-          <article class="term">
-            <strong>Sheriati</strong>
-            Ligji islam i bazuar në Kuran.
-          </article>
-          <article class="term">
-            <strong>Jeniçerët</strong>
-            Ushtarë të zgjedhur osmanë, të njohur për disiplinën e tyre.
-          </article>
-          <article class="term">
-            <strong>Esnafet</strong>
-            Organizime zezharësh, tregtarësh dhe artificesh që funksiononin në qytete.
-          </article>
-          <article class="term">
-            <strong>Borgjezia</strong>
-            Shtresa e tregtarëve dhe zejtarëve të pasur në qytete.
-          </article>
-          <article class="term">
-            <strong>Monarki absolute</strong>
-            Sistemi ku pushteti i mbretit është i madh dhe pothuajse i pakufizuar.
-          </article>
+          <article class="term"><strong>Beduinë</strong>Nomadë të shkretëtirës që lëviznin me karvanë deveje.</article>
+          <article class="term"><strong>Vasali</strong>Fisnik që merr tokë në këmbim të shërbimit ushtarak.</article>
+          <article class="term"><strong>Common Law</strong>E drejta e përgjithshme zakonore dhe gjyqësore në Angli.</article>
+          <article class="term"><strong>Sheriati</strong>Ligji islam i bazuar në Kuran.</article>
+          <article class="term"><strong>Jeniçerët</strong>Ushtarë të zgjedhur osmanë.</article>
+          <article class="term"><strong>Esnafet</strong>Organizime zejtare dhe tregtare.</article>
+          <article class="term"><strong>Borgjezia</strong>Shtresa e tregtarëve dhe zejtarëve të pasur.</article>
+          <article class="term"><strong>Monarki absolute</strong>Sistemi ku mbreti ka pushtet të madh dhe pothuajse të pakufizuar.</article>
         </div>
       </section>
 
-      <section id="timeline" class="section reveal-on-scroll">
+      <section id="timeline" class="section reveal">
         <div class="section-head">
           <div class="eyebrow">Linja kohore</div>
           <h2>Ngjarjet kryesore</h2>
@@ -839,26 +786,26 @@
         </div>
 
         <div class="timeline">
-          <div class="time-item"><span class="year">622</span> Hixhra: fillimi i kalendarit mysliman.</div>
-          <div class="time-item"><span class="year">800</span> Kurorëzimi i Karlit të Madh nga Papa Leoni III.</div>
-          <div class="time-item"><span class="year">1066</span> Pushtimi Norman i Anglisë.</div>
-          <div class="time-item"><span class="year">1215</span> Magna Carta: kufizim i pushtetit mbretëror.</div>
-          <div class="time-item"><span class="year">1299</span> Themelimi i Perandorisë Osmane.</div>
-          <div class="time-item"><span class="year">1453</span> Rënia e Kostandinopojës.</div>
+          <div class="time-item"><span class="year">622</span>Hixhra – fillimi i kalendarit mysliman.</div>
+          <div class="time-item"><span class="year">800</span>Kurorezohet Karli i Madh.</div>
+          <div class="time-item"><span class="year">1066</span>Pushtimi Norman i Anglisë.</div>
+          <div class="time-item"><span class="year">1215</span>Magna Carta vendos kufizimin e mbretit.</div>
+          <div class="time-item"><span class="year">1299</span>Themelimi i Perandorisë Osmane.</div>
+          <div class="time-item"><span class="year">1453</span>Rënia e Kostandinopojës.</div>
         </div>
       </section>
 
-      <section id="quiz" class="section reveal-on-scroll">
+      <section id="quiz" class="section reveal">
         <div class="section-head">
-          <div class="eyebrow">Kuiz interaktiv</div>
-          <h2>Pyetjet bazë + quiz të reja</h2>
+          <div class="eyebrow">Quiz</div>
+          <h2>Kuiz me alternativa</h2>
           <div class="divider"></div>
         </div>
 
         <div class="quiz-grid">
           <article class="quiz-card" data-correct="0">
-            <div class="card-top">
-              <div class="icon-bubble">❓</div>
+            <div class="theme-head">
+              <div class="icon-wrap">1</div>
               <span>Pyetja 1</span>
             </div>
             <div class="question-box">
@@ -869,13 +816,13 @@
                 <button class="option">1066</button>
                 <button class="option">1453</button>
               </div>
-              <div class="feedback">Përgjigja e saktë është 622. Ky vit shënon fillimin e kalendarit mysliman.</div>
+              <div class="feedback">Përgjigja e saktë: 622. Ky vit shënon fillimin e kalendarit mysliman.</div>
             </div>
           </article>
 
           <article class="quiz-card" data-correct="0">
-            <div class="card-top">
-              <div class="icon-bubble">🏰</div>
+            <div class="theme-head">
+              <div class="icon-wrap">2</div>
               <span>Pyetja 2</span>
             </div>
             <div class="question-box">
@@ -886,94 +833,60 @@
                 <button class="option">Mehmet II</button>
                 <button class="option">Pepini i Shkurtër</button>
               </div>
-              <div class="feedback">Përgjigja e saktë është Karli i Madh. Papa Leoni III e kurorëzoi atë.</div>
+              <div class="feedback">Përgjigja e saktë: Karli i Madh.</div>
             </div>
           </article>
 
           <article class="quiz-card" data-correct="0">
-            <div class="card-top">
-              <div class="icon-bubble">📜</div>
+            <div class="theme-head">
+              <div class="icon-wrap">3</div>
               <span>Pyetja 3</span>
             </div>
             <div class="question-box">
-              <h3>Cili dokument në 1215 kufizoi pushtetin e mbretit?</h3>
+              <h3>Çfarë dokumenti kufizoi pushtetin e mbretit në 1215?</h3>
               <div class="options">
                 <button class="option" data-correct="true">Magna Carta</button>
                 <button class="option">Kuran</button>
                 <button class="option">Përfaqësia e Përgjithshme</button>
-                <button class="option">Kanuni i Lekë Dukagjinit</button>
+                <button class="option">Kushtetuta</button>
               </div>
-              <div class="feedback">Përgjigja e saktë është Magna Carta. Ajo vendosi se taksat nuk mund të vendoseshin pa pëlqimin e Këshillit të Madh.</div>
+              <div class="feedback">Përgjigja e saktë: Magna Carta.</div>
             </div>
           </article>
 
           <article class="quiz-card" data-correct="0">
-            <div class="card-top">
-              <div class="icon-bubble">⚖️</div>
+            <div class="theme-head">
+              <div class="icon-wrap">4</div>
               <span>Pyetja 4</span>
             </div>
             <div class="question-box">
               <h3>Cila ishte ndryshimi kryesor mes Anglisë dhe Francës?</h3>
               <div class="options">
                 <button class="option" data-correct="true">Anglia drejt monarkisë parlamentare, Franca drejt monarkisë absolute</button>
-                <button class="option">Franca kishte parlament, Anglia jo</button>
+                <button class="option">Franca kishte Parlament, Anglia jo</button>
                 <button class="option">Të dyja kishin të njëjtin sistem</button>
                 <button class="option">Franca nuk kishte mbret</button>
               </div>
-              <div class="feedback">Përgjigja e saktë është: Anglia drejt monarkisë parlamentare, Franca drejt monarkisë absolute.</div>
-            </div>
-          </article>
-
-          <article class="quiz-card" data-correct="0">
-            <div class="card-top">
-              <div class="icon-bubble">⚔️</div>
-              <span>Pyetja 5</span>
-            </div>
-            <div class="question-box">
-              <h3>Cili ishte qëllimi kryesor i Kryqëzatave?</h3>
-              <div class="options">
-                <button class="option">Të krijonin një qytet të ri</button>
-                <button class="option" data-correct="true">Të çlironte Tokën e Shenjtë dhe të rritej ndikimi fetar dhe politik</button>
-                <button class="option">Të ndalonin islamin</button>
-                <button class="option">Të shkatërronin qytetet e Anglisë</button>
-              </div>
-              <div class="feedback">Përgjigja e saktë është: Kryqëzatat synonin çlirimin e Tokës së Shenjtë dhe rritjen e ndikimit politik dhe fetar.</div>
-            </div>
-          </article>
-
-          <article class="quiz-card" data-correct="0">
-            <div class="card-top">
-              <div class="icon-bubble">🕌</div>
-              <span>Pyetja 6</span>
-            </div>
-            <div class="question-box">
-              <h3>Kur u pushtua Kostandinopoja dhe nga kush?</h3>
-              <div class="options">
-                <button class="option" data-correct="true">1453 nga Mehmeti II</button>
-                <button class="option">1299 nga Karli i Madh</button>
-                <button class="option">1215 nga Mbreti Xhoni</button>
-                <button class="option">1066 nga Villiami Pushtuesi</button>
-              </div>
-              <div class="feedback">Përgjigja e saktë është 1453 nga Mehmeti II, një ngjarje kyçe për Perandorinë Osmane.</div>
+              <div class="feedback">Përgjigja e saktë: Anglia drejt monarkisë parlamentare, Franca drejt monarkisë absolute.</div>
             </div>
           </article>
         </div>
 
-        <div class="quiz-total" id="quiz-total">Rezultati: 0/6</div>
+        <div class="quiz-total" id="quiz-total">Rezultati: 0/4</div>
       </section>
 
-      <section class="section reveal-on-scroll">
+      <section class="section reveal">
         <div class="section-head">
-          <div class="eyebrow">Quiz i ri</div>
-          <h2>Vërtet ose gabim (5 pyetje)</h2>
+          <div class="eyebrow">Quiz</div>
+          <h2>Vërtet ose gabim</h2>
           <div class="divider"></div>
         </div>
 
         <div class="tf-grid">
           <article class="tf-card" data-correct="0">
-            <div class="card-top">
-              <div class="icon-bubble">✅</div>
-              <span>V/G 1</span>
+            <div class="theme-head">
+              <div class="icon-wrap">V/G</div>
+              <span>Pyetja 1</span>
             </div>
             <div class="question-box">
               <h3>Hixhra ndodh në vitin 622.</h3>
@@ -981,96 +894,102 @@
                 <button class="tf-choice" data-correct="true">Vërtetë</button>
                 <button class="tf-choice">Gabim</button>
               </div>
-              <div class="feedback">E saktë: Vërtetë. Hixhra është vitin 622.</div>
+              <div class="feedback">E saktë: Vërtetë.</div>
             </div>
           </article>
 
           <article class="tf-card" data-correct="0">
-            <div class="card-top">
-              <div class="icon-bubble">✅</div>
-              <span>V/G 2</span>
+            <div class="theme-head">
+              <div class="icon-wrap">V/G</div>
+              <span>Pyetja 2</span>
             </div>
             <div class="question-box">
-              <h3>Magna Carta u nënshkrua në vitin 1215.</h3>
+              <h3>Magna Carta u nënshkrua në 1215.</h3>
               <div class="options">
                 <button class="tf-choice" data-correct="true">Vërtetë</button>
                 <button class="tf-choice">Gabim</button>
               </div>
-              <div class="feedback">E saktë: Vërtetë. Magna Carta u firmos në 1215.</div>
+              <div class="feedback">E saktë: Vërtetë.</div>
             </div>
           </article>
 
           <article class="tf-card" data-correct="0">
-            <div class="card-top">
-              <div class="icon-bubble">✅</div>
-              <span>V/G 3</span>
+            <div class="theme-head">
+              <div class="icon-wrap">V/G</div>
+              <span>Pyetja 3</span>
             </div>
             <div class="question-box">
-              <h3>Karli i Madh u kurorëzua në vitin 800.</h3>
+              <h3>Karli i Madh u kurorëzua në 800.</h3>
               <div class="options">
                 <button class="tf-choice" data-correct="true">Vërtetë</button>
                 <button class="tf-choice">Gabim</button>
               </div>
-              <div class="feedback">E saktë: Vërtetë. Ky ishte një moment i rëndësishëm i Perandorisë së Shenjtë Romake.</div>
+              <div class="feedback">E saktë: Vërtetë.</div>
             </div>
           </article>
 
           <article class="tf-card" data-correct="0">
-            <div class="card-top">
-              <div class="icon-bubble">✅</div>
-              <span>V/G 4</span>
+            <div class="theme-head">
+              <div class="icon-wrap">V/G</div>
+              <span>Pyetja 4</span>
             </div>
             <div class="question-box">
-              <h3>Parlamenti anglez kishte një rol të madh në kufizimin e pushtetit të mbretit.</h3>
+              <h3>Parlamenti anglez ishte i rëndësishëm për kufizimin e mbretit.</h3>
               <div class="options">
                 <button class="tf-choice" data-correct="true">Vërtetë</button>
                 <button class="tf-choice">Gabim</button>
               </div>
-              <div class="feedback">E saktë: Vërtetë. Parlamenti luajti rol vendimtar.</div>
+              <div class="feedback">E saktë: Vërtetë.</div>
             </div>
           </article>
 
           <article class="tf-card" data-correct="0">
-            <div class="card-top">
-              <div class="icon-bubble">✅</div>
-              <span>V/G 5</span>
+            <div class="theme-head">
+              <div class="icon-wrap">V/G</div>
+              <span>Pyetja 5</span>
             </div>
             <div class="question-box">
-              <h3>Perandoria Osmane u themelua në vitin 1299.</h3>
+              <h3>Perandoria Osmane u themelua në 1299.</h3>
               <div class="options">
                 <button class="tf-choice" data-correct="true">Vërtetë</button>
                 <button class="tf-choice">Gabim</button>
               </div>
-              <div class="feedback">E saktë: Vërtetë. Perandoria Osmane u themelua në 1299.</div>
+              <div class="feedback">E saktë: Vërtetë.</div>
             </div>
           </article>
         </div>
       </section>
 
-      <section class="section reveal-on-scroll">
+      <section class="section reveal">
         <div class="section-head">
-          <div class="eyebrow">Quiz alternativ</div>
+          <div class="eyebrow">Quiz</div>
           <h2>Alternativa me 10 pyetje</h2>
           <div class="divider"></div>
         </div>
 
         <div class="quiz-grid">
           <article class="quiz-card" data-correct="0">
-            <div class="card-top"><div class="icon-bubble">1</div><span>Pyetja 1</span></div>
+            <div class="theme-head">
+              <div class="icon-wrap">1</div>
+              <span>Pyetja 1</span>
+            </div>
             <div class="question-box">
               <h3>Çfarë kuptimi ka termi “beduinë”?</h3>
               <div class="options">
                 <button class="option">Shkrimtarët e Islamit</button>
                 <button class="option" data-correct="true">Nomadë të shkretëtirës</button>
-                <button class="option">Ushtarë të Kisha</button>
+                <button class="option">Ushtarë të kishës</button>
                 <button class="option">Marrës të tokave</button>
               </div>
-              <div class="feedback">Përgjigja e saktë është: Nomadë të shkretëtirës.</div>
+              <div class="feedback">Përgjigja e saktë: Nomadë të shkretëtirës.</div>
             </div>
           </article>
 
           <article class="quiz-card" data-correct="0">
-            <div class="card-top"><div class="icon-bubble">2</div><span>Pyetja 2</span></div>
+            <div class="theme-head">
+              <div class="icon-wrap">2</div>
+              <span>Pyetja 2</span>
+            </div>
             <div class="question-box">
               <h3>Çfarë është Sheriati?</h3>
               <div class="options">
@@ -1079,12 +998,15 @@
                 <button class="option">Kushtetuta e Francës</button>
                 <button class="option">Dokumenti i Parlamentit</button>
               </div>
-              <div class="feedback">Përgjigja e saktë është: Ligji islam i bazuar në Kuran.</div>
+              <div class="feedback">Përgjigja e saktë: Ligji islam i bazuar në Kuran.</div>
             </div>
           </article>
 
           <article class="quiz-card" data-correct="0">
-            <div class="card-top"><div class="icon-bubble">3</div><span>Pyetja 3</span></div>
+            <div class="theme-head">
+              <div class="icon-wrap">3</div>
+              <span>Pyetja 3</span>
+            </div>
             <div class="question-box">
               <h3>Si quheshin ushtarët e zgjedhur osmanë?</h3>
               <div class="options">
@@ -1093,12 +1015,15 @@
                 <button class="option" data-correct="true">Jeniçerët</button>
                 <button class="option">Borgjezit</button>
               </div>
-              <div class="feedback">Përgjigja e saktë është: Jeniçerët.</div>
+              <div class="feedback">Përgjigja e saktë: Jeniçerët.</div>
             </div>
           </article>
 
           <article class="quiz-card" data-correct="0">
-            <div class="card-top"><div class="icon-bubble">4</div><span>Pyetja 4</span></div>
+            <div class="theme-head">
+              <div class="icon-wrap">4</div>
+              <span>Pyetja 4</span>
+            </div>
             <div class="question-box">
               <h3>Çfarë është “vasali”?</h3>
               <div class="options">
@@ -1107,26 +1032,32 @@
                 <button class="option">Njeriu që mbledh taksat</button>
                 <button class="option">Udhëheqësi i kishës</button>
               </div>
-              <div class="feedback">Përgjigja e saktë është: Fisnik që merr tokë dhe jep shërbim ushtarak.</div>
+              <div class="feedback">Përgjigja e saktë: Fisnik që merr tokë dhe jep shërbim ushtarak.</div>
             </div>
           </article>
 
           <article class="quiz-card" data-correct="0">
-            <div class="card-top"><div class="icon-bubble">5</div><span>Pyetja 5</span></div>
+            <div class="theme-head">
+              <div class="icon-wrap">5</div>
+              <span>Pyetja 5</span>
+            </div>
             <div class="question-box">
               <h3>Cilat ishin pesë shtyllat e Islamit?</h3>
               <div class="options">
-                <button class="option">Besimi, lutja, agjërimi, zbritja, mbrojtja</button>
+                <button class="option">Besimi, lutja, agjërimi, zbritja dhe mbrojtja</button>
                 <button class="option">Besimi, lutja, dhe shërbimi ushtarak</button>
                 <button class="option" data-correct="true">Besimi, lutja, dhurimi, agjërimi dhe pelegrinazhi</button>
-                <button class="option">Lutja, studimi, tregtia, lufta, monarki</button>
+                <button class="option">Lutja, studimi, tregtia, lufta dhe monarki</button>
               </div>
-              <div class="feedback">Përgjigja e saktë është: Besimi, lutja, dhurimi, agjërimi dhe pelegrinazhi.</div>
+              <div class="feedback">Përgjigja e saktë: Besimi, lutja, dhurimi, agjërimi dhe pelegrinazhi.</div>
             </div>
           </article>
 
           <article class="quiz-card" data-correct="0">
-            <div class="card-top"><div class="icon-bubble">6</div><span>Pyetja 6</span></div>
+            <div class="theme-head">
+              <div class="icon-wrap">6</div>
+              <span>Pyetja 6</span>
+            </div>
             <div class="question-box">
               <h3>Çfarë përfaqëson “Common Law” në Angli?</h3>
               <div class="options">
@@ -1135,12 +1066,15 @@
                 <button class="option">Ligji i luftës</button>
                 <button class="option">Ligji i qyteteve</button>
               </div>
-              <div class="feedback">Përgjigja e saktë është: Ligji i përgjithshëm zakonor dhe gjyqësor.</div>
+              <div class="feedback">Përgjigja e saktë: Ligji i përgjithshëm zakonor dhe gjyqësor.</div>
             </div>
           </article>
 
           <article class="quiz-card" data-correct="0">
-            <div class="card-top"><div class="icon-bubble">7</div><span>Pyetja 7</span></div>
+            <div class="theme-head">
+              <div class="icon-wrap">7</div>
+              <span>Pyetja 7</span>
+            </div>
             <div class="question-box">
               <h3>Çfarë nënkupton “esnafet”?</h3>
               <div class="options">
@@ -1149,26 +1083,32 @@
                 <button class="option" data-correct="true">Organizime zejtare dhe tregtare</button>
                 <button class="option">Marrësit e tokave</button>
               </div>
-              <div class="feedback">Përgjigja e saktë është: Organizime zejtare dhe tregtare.</div>
+              <div class="feedback">Përgjigja e saktë: Organizime zejtare dhe tregtare.</div>
             </div>
           </article>
 
           <article class="quiz-card" data-correct="0">
-            <div class="card-top"><div class="icon-bubble">8</div><span>Pyetja 8</span></div>
+            <div class="theme-head">
+              <div class="icon-wrap">8</div>
+              <span>Pyetja 8</span>
+            </div>
             <div class="question-box">
               <h3>Cili ishte qëllimi i Luftës Njëqindvjeçare?</h3>
               <div class="options">
                 <button class="option">Për të krijuar një lindje të re</button>
-                <button class="option" data-correct="true">Për të mbrojtur ose të rikthej Francën kundër Anglisë</button>
+                <button class="option" data-correct="true">Për të mbrojtur ose rikthyer Francën kundër Anglisë</button>
                 <button class="option">Për të ndërtuar një qytet</button>
-                <button class="option">Për të rritur pdimyrjen e islamit</button>
+                <button class="option">Për të rritur presionin e islamit</button>
               </div>
-              <div class="feedback">Përgjigja e saktë është: Për të mbrojtur ose rikthyer Francën kundër Anglisë.</div>
+              <div class="feedback">Përgjigja e saktë: Për të mbrojtur ose rikthyer Francën kundër Anglisë.</div>
             </div>
           </article>
 
           <article class="quiz-card" data-correct="0">
-            <div class="card-top"><div class="icon-bubble">9</div><span>Pyetja 9</span></div>
+            <div class="theme-head">
+              <div class="icon-wrap">9</div>
+              <span>Pyetja 9</span>
+            </div>
             <div class="question-box">
               <h3>Cili ishte roli i Këshillit të Madh në Angli?</h3>
               <div class="options">
@@ -1177,12 +1117,15 @@
                 <button class="option" data-correct="true">Vendoste taksat dhe ndikonte në pushtetin e mbretit</button>
                 <button class="option">Krijonte shkolla</button>
               </div>
-              <div class="feedback">Përgjigja e saktë është: Vendoste taksat dhe ndikonte në pushtetin e mbretit.</div>
+              <div class="feedback">Përgjigja e saktë: Vendoste taksat dhe ndikonte në pushtetin e mbretit.</div>
             </div>
           </article>
 
           <article class="quiz-card" data-correct="0">
-            <div class="card-top"><div class="icon-bubble">10</div><span>Pyetja 10</span></div>
+            <div class="theme-head">
+              <div class="icon-wrap">10</div>
+              <span>Pyetja 10</span>
+            </div>
             <div class="question-box">
               <h3>Çfarë është “komb-shtet”?</h3>
               <div class="options">
@@ -1191,29 +1134,29 @@
                 <button class="option">Një qytet i madh</button>
                 <button class="option">Një lloj kështjelle</button>
               </div>
-              <div class="feedback">Përgjigja e saktë është: Shtet i centralizuar me një territor, popull dhe qeveri të përbashkët.</div>
+              <div class="feedback">Përgjigja e saktë: Shtet i centralizuar me një territor, popull dhe qeveri të përbashkët.</div>
             </div>
           </article>
         </div>
       </section>
 
-      <section class="section reveal-on-scroll">
+      <section class="section reveal">
         <div class="section-head">
-          <div class="eyebrow">Pyetje të shkurta</div>
-          <h2>2 pyetje të shtjelluara</h2>
+          <div class="eyebrow">Quiz</div>
+          <h2>Pyetje të shkurta</h2>
           <div class="divider"></div>
         </div>
 
         <div class="short-grid">
           <article class="short-card">
-            <div class="card-top">
-              <div class="icon-bubble">✍️</div>
+            <div class="theme-head">
+              <div class="icon-wrap">✍️</div>
               <span>Pyetja 1</span>
             </div>
             <div class="card-body">
-              <h3>Pse u formua Magna Carta?</h3>
+              <h3 style="margin:0 0 10px;">Pse u formua Magna Carta?</h3>
               <div class="short-answer-form">
-                <input class="short-input" type="text" placeholder="Shkruaj përgjigjen tuaj..." />
+                <input class="short-input" type="text" placeholder="Shkruaj përgjigjen..." />
                 <button class="short-submit">Kontrollo</button>
                 <div class="short-feedback">Përgjigja e saktë: Për të kufizuar pushtetin e mbretit dhe për të kërkuar pëlqimin për taksat.</div>
               </div>
@@ -1221,96 +1164,97 @@
           </article>
 
           <article class="short-card">
-            <div class="card-top">
-              <div class="icon-bubble">✍️</div>
+            <div class="theme-head">
+              <div class="icon-wrap">✍️</div>
               <span>Pyetja 2</span>
             </div>
             <div class="card-body">
-              <h3>Pse Perandoria Osmane ishte e rëndësishme?</h3>
+              <h3 style="margin:0 0 10px;">Pse Perandoria Osmane ishte e rëndësishme?</h3>
               <div class="short-answer-form">
-                <input class="short-input" type="text" placeholder="Shkruaj përgjigjen tuaj..." />
+                <input class="short-input" type="text" placeholder="Shkruaj përgjigjen..." />
                 <button class="short-submit">Kontrollo</button>
-                <div class="short-feedback">Përgjigja e saktë: Sepse ajo u zgjerua shumë, kontrolloi Ballkanin dhe mori Kostandinopojën në 1453.</div>
+                <div class="short-feedback">Përgjigja e saktë: Sepse u zgjerua shumë, kontrolloi Ballkanin dhe mori Kostandinopojën në 1453.</div>
               </div>
             </div>
           </article>
         </div>
       </section>
 
-      <section id="qr" class="section reveal-on-scroll">
+      <section id="qr" class="section reveal">
         <div class="section-head">
-          <div class="eyebrow">Akses i shpejtë</div>
-          <h2>Skano QR dhe hap në telefon</h2>
+          <div class="eyebrow">Akses</div>
+          <h2>Skano QR</h2>
           <div class="divider"></div>
         </div>
 
-        <div class="qr-wrap">
-          <div class="qr-card">
-            <div>
-              <h3>Scan me</h3>
-              <p>Skano kodin QR për të hapur faqen në telefon dhe për të vazhduar mësimin.</p>
-            </div>
-            <img
-              alt="QR code për faqen historike"
-              src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=https%3A%2F%2Fgithub.com%2Feraaahhh%2FZHVILLIMET-E-REJA--TANZICIONI-DREJT-QYTET-RIMIT-MODERN-2.5-"
-            />
+        <div class="qr-card">
+          <div>
+            <h3 style="margin:0 0 8px; text-transform:uppercase; letter-spacing:0.04em;">Scan me</h3>
+            <p style="margin:0; color:var(--muted);">Skano kodin për të hapur faqen në telefon dhe vazhdo të studionit.</p>
           </div>
+          <img src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=https%3A%2F%2Fgithub.com%2Feraaahhh%2Fhistory-" alt="QR code" />
         </div>
       </section>
 
-      <section id="sources" class="section reveal-on-scroll">
+      <section id="sources" class="section reveal">
         <div class="section-head">
           <div class="eyebrow">Burimet</div>
-          <h2>Referencat e faqes</h2>
+          <h2>Referencat</h2>
           <div class="divider"></div>
         </div>
 
         <div class="source-card">
           <div class="card-body">
-            <ul>
+            <ul style="margin:0; padding-left:18px; color:var(--muted);">
               <li>Libri shkollor i historisë për periudhat mesjetare dhe moderne.</li>
-              <li>Përmbledhje e kulturës arabe, Perandorisë së Shenjtë Romake, Anglisë, Francës dhe Perandorisë Osmane.</li>
-              <li>Materiale të bazuara në zhvillimin e monarkive, feudaleve, qytetërimeve dhe kryqëzatave.</li>
+              <li>Materiale lidhur me qytetërimin arab, monarkitë evropiane dhe Perandorinë Osmane.</li>
+              <li>Referenca për kryqëzatat, qytetërimet dhe zhvillimin e shteteve evropiane.</li>
             </ul>
           </div>
         </div>
       </section>
 
-      <footer>
-        Përmbledhje e historisë mesjetare • Monarkitë dhe qytetërimet • Fjalor, kuiz dhe burime
-      </footer>
+      <footer>Punoj Era Hysaj</footer>
     </div>
 
     <script>
-      const revealItems = document.querySelectorAll('.reveal-on-scroll');
+      const themeHeads = document.querySelectorAll('.theme-head');
+      themeHeads.forEach((head) => {
+        head.addEventListener('click', () => {
+          const card = head.closest('.theme-card');
+          if (!card) return;
+          const isOpen = card.classList.contains('open');
+          document.querySelectorAll('.theme-card').forEach((c) => c.classList.remove('open'));
+          if (!isOpen) card.classList.add('open');
+        });
+      });
+
+      const revealItems = document.querySelectorAll('.reveal');
       const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
+            entry.classList.add('visible');
             observer.unobserve(entry.target);
           }
         });
       }, { threshold: 0.12 });
-
       revealItems.forEach((item) => observer.observe(item));
 
-      const quizCards = document.querySelectorAll('.quiz-card');
-      const tfCards = document.querySelectorAll('.tf-card');
+      const mainQuizCards = document.querySelectorAll('.quiz-card');
       const totalBox = document.getElementById('quiz-total');
 
       function updateTotal() {
         let correct = 0;
-        quizCards.forEach((card) => {
-          if (card.dataset.correct === '1') correct += 1;
+        mainQuizCards.forEach((card) => {
+          if (card.dataset.correct === '1') correct++;
         });
-        totalBox.textContent = `Rezultati: ${correct}/6`;
+        totalBox.textContent = `Rezultati: ${correct}/4`;
         totalBox.classList.add('show');
       }
 
-      quizCards.forEach((card) => {
+      mainQuizCards.forEach((card) => {
         const options = card.querySelectorAll('.option');
         const feedback = card.querySelector('.feedback');
-
         options.forEach((button) => {
           button.addEventListener('click', () => {
             if (button.disabled) return;
@@ -1318,7 +1262,6 @@
               opt.disabled = true;
               opt.classList.remove('correct', 'wrong');
             });
-
             const isCorrect = button.dataset.correct === 'true';
             if (isCorrect) {
               button.classList.add('correct');
@@ -1329,17 +1272,16 @@
               if (right) right.classList.add('correct');
               card.dataset.correct = '0';
             }
-
             feedback.classList.add('show');
             updateTotal();
           });
         });
       });
 
+      const tfCards = document.querySelectorAll('.tf-card');
       tfCards.forEach((card) => {
         const options = card.querySelectorAll('.tf-choice');
         const feedback = card.querySelector('.feedback');
-
         options.forEach((button) => {
           button.addEventListener('click', () => {
             if (button.disabled) return;
@@ -1347,19 +1289,14 @@
               opt.disabled = true;
               opt.classList.remove('correct', 'wrong');
             });
-
-            const isCorrect = button.textContent.trim() === 'Vërtetë' && card.querySelector('h3').textContent.includes('V/G') === false;
-            const actualCorrect = button.dataset.correct === 'true';
-            if (actualCorrect) {
+            const isCorrect = button.dataset.correct === 'true';
+            if (isCorrect) {
               button.classList.add('correct');
-              card.dataset.correct = '1';
             } else {
               button.classList.add('wrong');
               const right = [...options].find((opt) => opt.dataset.correct === 'true');
               if (right) right.classList.add('correct');
-              card.dataset.correct = '0';
             }
-
             feedback.classList.add('show');
           });
         });
@@ -1369,19 +1306,16 @@
         button.addEventListener('click', () => {
           const input = button.parentElement.querySelector('.short-input');
           const feedback = button.parentElement.querySelector('.short-feedback');
-          const answer = input.value.trim().toLowerCase();
+          const value = input.value.trim().toLowerCase();
+          const q = button.parentElement.parentElement.querySelector('h3').textContent.toLowerCase();
 
-          const validAnswers = {
-            'pse u formua magna carta?': ['per te kufizuar pushtetin e mbretit dhe per te kerkuar pëlqimin per taksat', 'per te kufizuar pushtetin e mbretit', 'per te kufizuar pushtetin e mbretit dhe per te kerkuar pëlqimin për taksat'],
-            'pse perandoria osmane ishte e rendesishme?': ['sepse ajo u zgjerua shume, kontrolloi ballkanin dhe mori kostandinopojen ne 1453', 'sepse u zgjerua', 'u zgjerua, kontrolloi ballkanin dhe mori kostandinopojën në 1453']
+          const valid = {
+            'pse u formua magna carta?': ['kufizuar pushtetin e mbretit', 'pëlqimin për taksat', 'kufizuar pushtetin e mbretit dhe për të kërkuar pëlqimin për taksat'],
+            'pse perandoria osmane ishte e rëndësishme?': ['u zgjerua shumë', 'kontrolloi ballkanin', 'mori kostandinopojën në 1453', 'u zgjerua shumë dhe mori kostandinopojën në 1453']
           };
 
-          const questionText = button.parentElement.parentElement.querySelector('h3').textContent.toLowerCase();
-          const allowed = validAnswers[questionText] || [];
-
-          const isCorrect = allowed.some((allowedAnswer) => answer.includes(allowedAnswer));
-          input.classList.toggle('short-answer-correct', isCorrect);
-          input.classList.toggle('short-answer-wrong', !isCorrect && answer.length > 0);
+          const accepted = valid[q] || [];
+          const isCorrect = accepted.some((s) => value.includes(s));
           feedback.classList.add('show');
           if (!isCorrect) {
             feedback.textContent = 'Përgjigja e saktë: Për të kufizuar pushtetin e mbretit dhe për të kërkuar pëlqimin për taksat.';
