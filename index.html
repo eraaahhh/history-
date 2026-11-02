@@ -6,19 +6,19 @@
     <title>Historia e Mesjetës</title>
     <style>
       :root {
-        --bg: #f4efe8;
+        --bg: #f5efe8;
         --paper: #fffdf9;
         --paper-soft: #f7efe4;
-        --gold: #d6b07c;
-        --gold-deep: #ad6d32;
-        --bronze: #7e4d2f;
+        --gold: #d7b17a;
+        --gold-deep: #aa6d35;
+        --bronze: #7f4f30;
         --ink: #1d1a17;
-        --muted: #5e544f;
+        --muted: #5d534e;
         --green: #285f47;
         --green-soft: #eaf4ee;
         --red: #8b3d3d;
         --red-soft: #f7e0e0;
-        --shadow: rgba(24, 18, 14, 0.12);
+        --shadow: rgba(25, 19, 14, 0.12);
       }
 
       * { box-sizing: border-box; }
@@ -26,11 +26,11 @@
       body {
         margin: 0;
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        color: var(--ink);
         background:
           radial-gradient(circle at top left, rgba(214,176,124,0.18), transparent 24%),
           radial-gradient(circle at bottom right, rgba(173,109,50,0.12), transparent 30%),
           linear-gradient(180deg, #f6f1ea 0%, #fdfaf6 100%);
-        color: var(--ink);
         line-height: 1.7;
       }
 
@@ -50,9 +50,38 @@
         z-index: 50;
         background: rgba(255, 253, 250, 0.9);
         border: 2px solid var(--ink);
-        border-radius: 20px;
-        box-shadow: 0 8px 0 rgba(0,0,0,0.07);
-        backdrop-filter: blur(10px);
+        border-radius: 22px;
+        box-shadow: 0 10px 0 rgba(0,0,0,0.06);
+        backdrop-filter: blur(12px);
+      }
+
+      .topbar-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 14px;
+        padding: 14px 18px;
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 0.82rem;
+        font-weight: 900;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .brand-mark {
+        width: 34px;
+        height: 34px;
+        display: grid;
+        place-items: center;
+        border-radius: 12px;
+        border: 2px solid var(--ink);
+        background: linear-gradient(135deg, var(--gold), #f2d7a5);
+        box-shadow: inset 0 0 0 2px rgba(255,255,255,0.4);
       }
 
       .nav {
@@ -60,7 +89,6 @@
         flex-wrap: wrap;
         justify-content: center;
         gap: 8px;
-        padding: 14px;
       }
 
       .nav a {
@@ -68,7 +96,7 @@
         background: #f7efe8;
         border: 2px solid rgba(29,26,23,0.6);
         border-radius: 999px;
-        font-size: 0.82rem;
+        font-size: 0.8rem;
         font-weight: 800;
         letter-spacing: 0.03em;
         transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -83,7 +111,7 @@
         position: relative;
         margin-top: 28px;
         padding: 32px 24px 26px;
-        background: linear-gradient(135deg, rgba(255,255,255,0.96), rgba(246,233,218,0.97));
+        background: linear-gradient(135deg, rgba(255,255,255,0.97), rgba(246,233,218,0.97));
         border: 3px solid var(--ink);
         border-radius: 28px;
         box-shadow: 0 14px 0 rgba(0,0,0,0.07);
@@ -100,6 +128,11 @@
         right: -100px;
         top: -110px;
         animation: pulseGlow 6s ease-in-out infinite;
+      }
+
+      @keyframes pulseGlow {
+        0%, 100% { transform: scale(1); opacity: 0.8; }
+        50% { transform: scale(1.08); opacity: 1; }
       }
 
       .hero-grid {
@@ -177,6 +210,11 @@
         animation: floatCard 4s ease-in-out infinite;
       }
 
+      @keyframes floatCard {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-6px); }
+      }
+
       .mini-stack {
         display: grid;
         gap: 10px;
@@ -211,14 +249,14 @@
       .eyebrow {
         font-size: 0.76rem;
         text-transform: uppercase;
-        letter-spacing: 0.14em;
+        letter-spacing: 0.13em;
         font-weight: 900;
         color: var(--bronze);
       }
 
       .section-head h2 {
         margin: 8px 0 0;
-        font-size: clamp(1.7rem, 2.3vw, 2.7rem);
+        font-size: clamp(1.7rem, 2.3vw, 2.6rem);
         letter-spacing: 0.04em;
         text-transform: uppercase;
       }
@@ -226,32 +264,30 @@
       .divider {
         width: 110px;
         height: 4px;
-        margin-top: 12px;
         border-radius: 999px;
+        margin-top: 12px;
         background: linear-gradient(90deg, var(--gold), var(--bronze));
       }
 
       .themes-grid,
-      .fun-grid,
-      .compare-grid,
       .glossary-grid,
-      .timeline-grid,
+      .compare-grid,
       .quiz-grid,
       .tf-grid,
       .short-grid,
-      .stat-grid {
+      .fun-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         gap: 18px;
       }
 
       .theme-card,
-      .fact-card,
-      .compare-card,
       .term,
+      .compare-card,
       .quiz-card,
       .tf-card,
       .short-card,
+      .fact-card,
       .source-card,
       .qr-card {
         background: rgba(255,255,255,0.94);
@@ -263,12 +299,12 @@
       }
 
       .theme-card:hover,
-      .fact-card:hover,
-      .compare-card:hover,
       .term:hover,
+      .compare-card:hover,
       .quiz-card:hover,
       .tf-card:hover,
       .short-card:hover,
+      .fact-card:hover,
       .source-card:hover {
         transform: translateY(-4px);
         box-shadow: 0 14px 0 rgba(0,0,0,0.07);
@@ -279,7 +315,7 @@
         align-items: center;
         gap: 12px;
         padding: 16px 18px;
-        background: linear-gradient(90deg, #ebd8b1, #d7b17a);
+        background: linear-gradient(90deg, #ebd8b1, #d9b483);
         border-bottom: 3px solid var(--ink);
         font-weight: 900;
         letter-spacing: 0.04em;
@@ -294,13 +330,13 @@
         place-items: center;
         border-radius: 12px;
         border: 2px solid var(--ink);
-        background: rgba(255,255,255,0.72);
+        background: rgba(255,255,255,0.7);
         font-size: 1.3rem;
       }
 
       .theme-body {
         padding: 18px;
-        background: #f9f1e7;
+        background: #f9f1e8;
       }
 
       .theme-body p {
@@ -310,9 +346,9 @@
 
       .theme-info {
         max-height: 0;
-        opacity: 0;
         overflow: hidden;
-        transition: max-height 0.35s ease, opacity 0.25s ease, margin 0.25s ease;
+        opacity: 0;
+        transition: max-height 0.35s ease, opacity 0.3s ease, margin-top 0.3s ease;
         margin-top: 0;
       }
 
@@ -325,37 +361,49 @@
       .theme-info p {
         margin: 0;
         padding: 12px 14px;
-        background: rgba(255,255,255,0.75);
-        border: 2px solid rgba(29,26,23,0.45);
+        background: rgba(255,255,255,0.76);
+        border: 2px solid rgba(31,26,23,0.5);
         border-radius: 12px;
         color: var(--ink);
       }
 
-      .fact-card .card-body,
+      .fun-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      }
+
+      .fact-card .card-body {
+        min-height: 170px;
+      }
+
+      .fact-card .card-body p {
+        margin: 0;
+        color: var(--muted);
+      }
+
       .compare-card .card-body,
-      .term,
-      .quiz-card .question-box,
-      .tf-card .question-box,
+      .quiz-card .card-body,
+      .tf-card .card-body,
       .short-card .card-body,
       .source-card .card-body {
         padding: 18px;
         background: #f8f1ea;
       }
 
+      .compare-card ul {
+        margin: 0;
+        padding-left: 16px;
+        color: var(--muted);
+      }
+
       .term {
         padding: 18px;
+        background: #fcf7f2;
       }
 
       .term strong {
         display: block;
         margin-bottom: 8px;
-        font-size: 1.06rem;
-      }
-
-      .compare-card ul {
-        margin: 0;
-        padding-left: 18px;
-        color: var(--muted);
+        font-size: 1.08rem;
       }
 
       .timeline {
@@ -370,22 +418,21 @@
         background: rgba(255,255,255,0.95);
         border: 3px solid var(--ink);
         border-radius: 14px;
-        margin-bottom: 18px;
         padding: 14px 16px;
+        margin-bottom: 18px;
         box-shadow: 0 8px 0 rgba(0,0,0,0.06);
-        animation: slideIn 0.6s ease both;
       }
 
       .time-item::before {
         content: "";
         position: absolute;
-        left: -39px;
+        left: -38px;
         top: 18px;
         width: 18px;
         height: 18px;
         border-radius: 50%;
-        background: var(--gold);
         border: 3px solid var(--ink);
+        background: var(--gold);
       }
 
       .year {
@@ -393,7 +440,7 @@
         margin-right: 8px;
         color: var(--bronze);
         font-weight: 900;
-        font-size: 1.26rem;
+        font-size: 1.25rem;
       }
 
       .quiz-grid,
@@ -404,26 +451,31 @@
       .quiz-card,
       .tf-card,
       .short-card {
-        background: #faf2e8;
+        background: #faf3ea;
+      }
+
+      .question-box {
+        padding: 18px;
       }
 
       .question-box h3 {
-        margin: 0 0 10px;
+        margin: 0;
         font-size: 1.08rem;
       }
 
       .options {
         display: grid;
         gap: 9px;
+        margin-top: 12px;
       }
 
       .option,
       .tf-choice,
       .short-input {
         width: 100%;
-        border: 2px solid rgba(29,26,23,0.5);
+        border: 2px solid rgba(31,26,23,0.5);
         border-radius: 12px;
-        background: rgba(255,255,255,0.9);
+        background: rgba(255,255,255,0.92);
         padding: 10px 12px;
         text-align: left;
         font-weight: 700;
@@ -432,18 +484,27 @@
       }
 
       .option:hover,
-      .tf-choice:hover { background: #f2e5d5; }
+      .tf-choice:hover {
+        background: #f0e4d3;
+      }
 
       .option.correct,
-      .tf-choice.correct { background: var(--green-soft); border-color: rgba(40,94,70,0.8); }
+      .tf-choice.correct {
+        background: var(--green-soft);
+        border-color: rgba(40,94,70,0.8);
+      }
+
       .option.wrong,
-      .tf-choice.wrong { background: var(--red-soft); border-color: rgba(139,61,61,0.8); }
+      .tf-choice.wrong {
+        background: var(--red-soft);
+        border-color: rgba(141,61,61,0.8);
+      }
 
       .feedback,
       .short-feedback {
         display: none;
         margin-top: 12px;
-        border: 2px solid rgba(29,26,23,0.35);
+        border: 2px solid rgba(31, 26, 23, 0.35);
         border-radius: 12px;
         padding: 10px 12px;
         background: #edf6ef;
@@ -452,7 +513,9 @@
       }
 
       .feedback.show,
-      .short-feedback.show { display: block; }
+      .short-feedback.show {
+        display: block;
+      }
 
       .quiz-total {
         display: none;
@@ -460,11 +523,13 @@
         padding: 14px 18px;
         border: 3px solid var(--ink);
         border-radius: 14px;
-        background: linear-gradient(135deg, #f6d9a1, #e4bc75);
+        background: linear-gradient(135deg, #f3dba8, #e7c67d);
         font-weight: 900;
       }
 
-      .quiz-total.show { display: block; }
+      .quiz-total.show {
+        display: block;
+      }
 
       .short-answer-form {
         display: grid;
@@ -473,9 +538,8 @@
       }
 
       .short-submit {
-        display: inline-flex;
         width: fit-content;
-        padding: 10px 14px;
+        padding: 10px 15px;
         border: 2px solid var(--ink);
         border-radius: 12px;
         background: linear-gradient(135deg, var(--gold), var(--gold-deep));
@@ -485,11 +549,11 @@
 
       .qr-card {
         display: flex;
-        align-items: center;
         justify-content: space-between;
+        align-items: center;
         gap: 18px;
         padding: 18px 20px;
-        background: linear-gradient(135deg, rgba(255,255,255,0.96), rgba(244,232,220,0.96));
+        background: linear-gradient(135deg, rgba(255,255,255,0.96), rgba(244,232,218,0.96));
       }
 
       .qr-card img {
@@ -502,7 +566,7 @@
       }
 
       footer {
-        margin-top: 40px;
+        margin-top: 36px;
         text-align: center;
         color: var(--muted);
         font-weight: 800;
@@ -510,49 +574,53 @@
 
       .reveal {
         opacity: 0;
-        transform: translateY(18px) scale(0.985);
+        transform: translateY(16px);
         transition: opacity 0.7s ease, transform 0.7s ease;
       }
 
       .reveal.visible {
         opacity: 1;
-        transform: translateY(0) scale(1);
-      }
-
-      @keyframes pulseGlow {
-        0%, 100% { transform: scale(1); opacity: 0.7; }
-        50% { transform: scale(1.08); opacity: 1; }
-      }
-
-      @keyframes floatCard {
-        0%, 100% { transform: translateY(0); }
-        50% { transform: translateY(-6px); }
-      }
-
-      @keyframes slideIn {
-        from { opacity: 0; transform: translateX(-12px); }
-        to { opacity: 1; transform: translateX(0); }
+        transform: translateY(0);
       }
 
       @media (max-width: 760px) {
-        .hero-grid { grid-template-columns: 1fr; }
-        .nav { justify-content: flex-start; }
-        .qr-card { flex-direction: column; align-items: flex-start; }
+        .hero-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .topbar-inner {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .nav {
+          justify-content: flex-start;
+        }
+
+        .qr-card {
+          flex-direction: column;
+          align-items: flex-start;
+        }
       }
     </style>
   </head>
   <body>
     <div class="container">
       <header class="topbar">
-        <nav class="nav" aria-label="Navigimi i faqes">
-          <a href="#themes">Temat</a>
-          <a href="#compare">Krahasimi</a>
-          <a href="#glossary">Fjalori</a>
-          <a href="#timeline">Linja kohore</a>
-          <a href="#quiz">Quiz</a>
-          <a href="#qr">QR</a>
-          <a href="#sources">Burimet</a>
-        </nav>
+        <div class="topbar-inner">
+          <div class="brand">
+            <div class="brand-mark">✦</div>
+            <span>Historia</span>
+          </div>
+          <nav class="nav" aria-label="Navigimi i faqes">
+            <a href="#themes">Temat</a>
+            <a href="#timeline">Linja kohore</a>
+            <a href="#glossary">Fjalori</a>
+            <a href="#quiz">Quiz</a>
+            <a href="#qr">QR</a>
+            <a href="#sources">Burimet</a>
+          </nav>
+        </div>
       </header>
 
       <section class="hero reveal">
@@ -561,8 +629,8 @@
             <span class="badge">Historia e Mesjetës</span>
             <h1>Monarkitë, qytetërime dhe ndryshime të mëdha</h1>
             <p class="lead">
-              Një hyrje moderne dhe e pasur vizualisht në histori: qytetërimi arab, Perandoria e Shenjtë Romake,
-              monarkitë angleze dhe franceze, kryqëzatat dhe Perandoria Osmane.
+              Një hyrje elegante dhe e qartë në botën e qytetërimit arab, Perandorisë së
+              Shenjtë Romake, Anglisë, Francës, kryqëzatave dhe Perandorisë Osmane.
             </p>
             <div class="hero-actions">
               <a href="#themes" class="btn primary">Hyr te temat</a>
@@ -573,9 +641,9 @@
           <div class="hero-side">
             <div class="mini-stack">
               <div class="mini-item"><span class="dot"></span><span>Qytetërimi Arab</span></div>
-              <div class="mini-item"><span class="dot"></span><span>Perandoria e Shenjtë Romake</span></div>
-              <div class="mini-item"><span class="dot"></span><span>Anglia dhe Franca</span></div>
-              <div class="mini-item"><span class="dot"></span><span>Kryqëzatat dhe Perandoria Osmane</span></div>
+              <div class="mini-item"><span class="dot"></span><span>Monarkitë evropiane</span></div>
+              <div class="mini-item"><span class="dot"></span><span>Kryqëzatat dhe ndikimi</span></div>
+              <div class="mini-item"><span class="dot"></span><span>Perandoria Osmane</span></div>
             </div>
           </div>
         </div>
@@ -597,7 +665,7 @@
             <div class="theme-body">
               <p>Beduinët, Islami dhe kalifatet</p>
               <div id="arab-info" class="theme-info">
-                <p>Arabët nomadë quheshin beduinë. Islami u shfaq me Profetin Muhamed, ndërsa kalifatet u zhvilluan pas vdekjes së tij.</p>
+                <p>Arabët nomadë quheshin beduinë. Islami u përhap nga Profeti Muhamed, ndërsa kalifatet vazhduan të zhvillohen pas vdekjes së tij.</p>
               </div>
             </div>
           </article>
@@ -605,7 +673,7 @@
           <article class="theme-card">
             <div class="theme-head" data-target="roman-info">
               <div class="icon-wrap">👑</div>
-              <span>Perandoria Romake</span>
+              <span>Perandoria e Shenjtë Romake</span>
             </div>
             <div class="theme-body">
               <p>Karlit i Madh, feudalizmi dhe rinovimi</p>
@@ -623,7 +691,7 @@
             <div class="theme-body">
               <p>Common Law, Magna Carta dhe parlamenti</p>
               <div id="england-info" class="theme-info">
-                <p>Pas pushtimit norman në 1066, Anglia zhvilloi sistemin e Common Law dhe më pas Magna Carta, e cila kufizoi pushtetin e mbretit.</p>
+                <p>Pas pushtimit norman në 1066, Anglia zhvilloi sistemin e Common Law dhe më pas Magma Carta, e cila kufizoi pushtetin e mbretit.</p>
               </div>
             </div>
           </article>
@@ -662,7 +730,7 @@
             <div class="theme-body">
               <p>U themelua në 1299 dhe arriti kulmin në 1453</p>
               <div id="ottoman-info" class="theme-info">
-                <p>Perandoria Osmane u themelua nga emirati i Osmanit. Në 1453 Mehmeti II pushtoi Kostandinopojën dhe e bëri qytetin qendër të një perandorie të madhe.</p>
+                <p>Perandoria Osmane u themelua nga emirati i Osmanit. Në 1453 Mehmeti II pushtoi Kostandinopojën dhe bëri nga qyteti një qendër madhore.</p>
               </div>
             </div>
           </article>
@@ -678,8 +746,8 @@
 
         <div class="fun-grid">
           <article class="fact-card">
-            <div class="theme-head">
-              <div class="icon-wrap">📜</div>
+            <div class="card-top" style="display:flex; align-items:center; gap:12px; padding:14px 16px; border-bottom:3px solid var(--ink); background:linear-gradient(90deg, #edd8b0, #d3a46d); font-weight:900; text-transform:uppercase; letter-spacing:0.04em;">
+              <span class="icon-wrap" style="width:36px;height:36px; font-size:1.2rem;">📜</span>
               <span>Magna Carta</span>
             </div>
             <div class="card-body">
@@ -688,8 +756,8 @@
           </article>
 
           <article class="fact-card">
-            <div class="theme-head">
-              <div class="icon-wrap">🧠</div>
+            <div class="card-top" style="display:flex; align-items:center; gap:12px; padding:14px 16px; border-bottom:3px solid var(--ink); background:linear-gradient(90deg, #edd8b0, #d3a46d); font-weight:900; text-transform:uppercase; letter-spacing:0.04em;">
+              <span class="icon-wrap" style="width:36px;height:36px; font-size:1.2rem;">🧠</span>
               <span>Shkenca arabe</span>
             </div>
             <div class="card-body">
@@ -698,8 +766,8 @@
           </article>
 
           <article class="fact-card">
-            <div class="theme-head">
-              <div class="icon-wrap">⚖️</div>
+            <div class="card-top" style="display:flex; align-items:center; gap:12px; padding:14px 16px; border-bottom:3px solid var(--ink); background:linear-gradient(90deg, #edd8b0, #d3a46d); font-weight:900; text-transform:uppercase; letter-spacing:0.04em;">
+              <span class="icon-wrap" style="width:36px;height:36px; font-size:1.2rem;">⚖️</span>
               <span>Common Law</span>
             </div>
             <div class="card-body">
@@ -708,8 +776,8 @@
           </article>
 
           <article class="fact-card">
-            <div class="theme-head">
-              <div class="icon-wrap">🕌</div>
+            <div class="card-top" style="display:flex; align-items:center; gap:12px; padding:14px 16px; border-bottom:3px solid var(--ink); background:linear-gradient(90deg, #edd8b0, #d3a46d); font-weight:900; text-transform:uppercase; letter-spacing:0.04em;">
+              <span class="icon-wrap" style="width:36px;height:36px; font-size:1.2rem;">🕌</span>
               <span>Osmane</span>
             </div>
             <div class="card-body">
@@ -728,8 +796,8 @@
 
         <div class="compare-grid">
           <article class="compare-card">
-            <div class="theme-head">
-              <div class="icon-wrap">🇬🇧</div>
+            <div class="card-top" style="display:flex; align-items:center; gap:12px; padding:14px 16px; border-bottom:3px solid var(--ink); background:linear-gradient(90deg, #ebd8b1, #d7b17a); font-weight:900; letter-spacing:0.04em; text-transform:uppercase;">
+              <div class="icon-wrap" style="width:36px;height:36px; font-size:1.2rem;">🇬🇧</div>
               <span>Anglia</span>
             </div>
             <div class="card-body">
@@ -743,8 +811,8 @@
           </article>
 
           <article class="compare-card">
-            <div class="theme-head">
-              <div class="icon-wrap">🇫🇷</div>
+            <div class="card-top" style="display:flex; align-items:center; gap:12px; padding:14px 16px; border-bottom:3px solid var(--ink); background:linear-gradient(90deg, #ebd8b1, #d7b17a); font-weight:900; letter-spacing:0.04em; text-transform:uppercase;">
+              <div class="icon-wrap" style="width:36px;height:36px; font-size:1.2rem;">🇫🇷</div>
               <span>Franca</span>
             </div>
             <div class="card-body">
@@ -804,8 +872,8 @@
 
         <div class="quiz-grid">
           <article class="quiz-card" data-correct="0">
-            <div class="theme-head">
-              <div class="icon-wrap">1</div>
+            <div class="card-top" style="display:flex; align-items:center; gap:12px; padding:14px 16px; border-bottom:3px solid var(--ink); background:linear-gradient(90deg, #ebd8b1, #d7b17a); font-weight:900; letter-spacing:0.04em; text-transform:uppercase;">
+              <div class="icon-wrap" style="width:36px;height:36px; font-size:1.2rem;">1</div>
               <span>Pyetja 1</span>
             </div>
             <div class="question-box">
@@ -821,8 +889,8 @@
           </article>
 
           <article class="quiz-card" data-correct="0">
-            <div class="theme-head">
-              <div class="icon-wrap">2</div>
+            <div class="card-top" style="display:flex; align-items:center; gap:12px; padding:14px 16px; border-bottom:3px solid var(--ink); background:linear-gradient(90deg, #ebd8b1, #d7b17a); font-weight:900; letter-spacing:0.04em; text-transform:uppercase;">
+              <div class="icon-wrap" style="width:36px;height:36px; font-size:1.2rem;">2</div>
               <span>Pyetja 2</span>
             </div>
             <div class="question-box">
@@ -838,8 +906,8 @@
           </article>
 
           <article class="quiz-card" data-correct="0">
-            <div class="theme-head">
-              <div class="icon-wrap">3</div>
+            <div class="card-top" style="display:flex; align-items:center; gap:12px; padding:14px 16px; border-bottom:3px solid var(--ink); background:linear-gradient(90deg, #ebd8b1, #d7b17a); font-weight:900; letter-spacing:0.04em; text-transform:uppercase;">
+              <div class="icon-wrap" style="width:36px;height:36px; font-size:1.2rem;">3</div>
               <span>Pyetja 3</span>
             </div>
             <div class="question-box">
@@ -855,8 +923,8 @@
           </article>
 
           <article class="quiz-card" data-correct="0">
-            <div class="theme-head">
-              <div class="icon-wrap">4</div>
+            <div class="card-top" style="display:flex; align-items:center; gap:12px; padding:14px 16px; border-bottom:3px solid var(--ink); background:linear-gradient(90deg, #ebd8b1, #d7b17a); font-weight:900; letter-spacing:0.04em; text-transform:uppercase;">
+              <div class="icon-wrap" style="width:36px;height:36px; font-size:1.2rem;">4</div>
               <span>Pyetja 4</span>
             </div>
             <div class="question-box">
@@ -884,8 +952,8 @@
 
         <div class="tf-grid">
           <article class="tf-card" data-correct="0">
-            <div class="theme-head">
-              <div class="icon-wrap">V/G</div>
+            <div class="card-top" style="display:flex; align-items:center; gap:12px; padding:14px 16px; border-bottom:3px solid var(--ink); background:linear-gradient(90deg, #ebd8b1, #d7b17a); font-weight:900; letter-spacing:0.04em; text-transform:uppercase;">
+              <div class="icon-wrap" style="width:36px;height:36px; font-size:1.2rem;">V/G</div>
               <span>Pyetja 1</span>
             </div>
             <div class="question-box">
@@ -899,8 +967,8 @@
           </article>
 
           <article class="tf-card" data-correct="0">
-            <div class="theme-head">
-              <div class="icon-wrap">V/G</div>
+            <div class="card-top" style="display:flex; align-items:center; gap:12px; padding:14px 16px; border-bottom:3px solid var(--ink); background:linear-gradient(90deg, #ebd8b1, #d7b17a); font-weight:900; letter-spacing:0.04em; text-transform:uppercase;">
+              <div class="icon-wrap" style="width:36px;height:36px; font-size:1.2rem;">V/G</div>
               <span>Pyetja 2</span>
             </div>
             <div class="question-box">
@@ -914,8 +982,8 @@
           </article>
 
           <article class="tf-card" data-correct="0">
-            <div class="theme-head">
-              <div class="icon-wrap">V/G</div>
+            <div class="card-top" style="display:flex; align-items:center; gap:12px; padding:14px 16px; border-bottom:3px solid var(--ink); background:linear-gradient(90deg, #ebd8b1, #d7b17a); font-weight:900; letter-spacing:0.04em; text-transform:uppercase;">
+              <div class="icon-wrap" style="width:36px;height:36px; font-size:1.2rem;">V/G</div>
               <span>Pyetja 3</span>
             </div>
             <div class="question-box">
@@ -929,8 +997,8 @@
           </article>
 
           <article class="tf-card" data-correct="0">
-            <div class="theme-head">
-              <div class="icon-wrap">V/G</div>
+            <div class="card-top" style="display:flex; align-items:center; gap:12px; padding:14px 16px; border-bottom:3px solid var(--ink); background:linear-gradient(90deg, #ebd8b1, #d7b17a); font-weight:900; letter-spacing:0.04em; text-transform:uppercase;">
+              <div class="icon-wrap" style="width:36px;height:36px; font-size:1.2rem;">V/G</div>
               <span>Pyetja 4</span>
             </div>
             <div class="question-box">
@@ -944,8 +1012,8 @@
           </article>
 
           <article class="tf-card" data-correct="0">
-            <div class="theme-head">
-              <div class="icon-wrap">V/G</div>
+            <div class="card-top" style="display:flex; align-items:center; gap:12px; padding:14px 16px; border-bottom:3px solid var(--ink); background:linear-gradient(90deg, #ebd8b1, #d7b17a); font-weight:900; letter-spacing:0.04em; text-transform:uppercase;">
+              <div class="icon-wrap" style="width:36px;height:36px; font-size:1.2rem;">V/G</div>
               <span>Pyetja 5</span>
             </div>
             <div class="question-box">
@@ -969,8 +1037,8 @@
 
         <div class="quiz-grid">
           <article class="quiz-card" data-correct="0">
-            <div class="theme-head">
-              <div class="icon-wrap">1</div>
+            <div class="card-top" style="display:flex; align-items:center; gap:12px; padding:14px 16px; border-bottom:3px solid var(--ink); background:linear-gradient(90deg, #ebd8b1, #d7b17a); font-weight:900; letter-spacing:0.04em; text-transform:uppercase;">
+              <div class="icon-wrap" style="width:36px;height:36px; font-size:1.2rem;">1</div>
               <span>Pyetja 1</span>
             </div>
             <div class="question-box">
@@ -986,8 +1054,8 @@
           </article>
 
           <article class="quiz-card" data-correct="0">
-            <div class="theme-head">
-              <div class="icon-wrap">2</div>
+            <div class="card-top" style="display:flex; align-items:center; gap:12px; padding:14px 16px; border-bottom:3px solid var(--ink); background:linear-gradient(90deg, #ebd8b1, #d7b17a); font-weight:900; letter-spacing:0.04em; text-transform:uppercase;">
+              <div class="icon-wrap" style="width:36px;height:36px; font-size:1.2rem;">2</div>
               <span>Pyetja 2</span>
             </div>
             <div class="question-box">
@@ -1003,8 +1071,8 @@
           </article>
 
           <article class="quiz-card" data-correct="0">
-            <div class="theme-head">
-              <div class="icon-wrap">3</div>
+            <div class="card-top" style="display:flex; align-items:center; gap:12px; padding:14px 16px; border-bottom:3px solid var(--ink); background:linear-gradient(90deg, #ebd8b1, #d7b17a); font-weight:900; letter-spacing:0.04em; text-transform:uppercase;">
+              <div class="icon-wrap" style="width:36px;height:36px; font-size:1.2rem;">3</div>
               <span>Pyetja 3</span>
             </div>
             <div class="question-box">
@@ -1020,8 +1088,8 @@
           </article>
 
           <article class="quiz-card" data-correct="0">
-            <div class="theme-head">
-              <div class="icon-wrap">4</div>
+            <div class="card-top" style="display:flex; align-items:center; gap:12px; padding:14px 16px; border-bottom:3px solid var(--ink); background:linear-gradient(90deg, #ebd8b1, #d7b17a); font-weight:900; letter-spacing:0.04em; text-transform:uppercase;">
+              <div class="icon-wrap" style="width:36px;height:36px; font-size:1.2rem;">4</div>
               <span>Pyetja 4</span>
             </div>
             <div class="question-box">
@@ -1037,8 +1105,8 @@
           </article>
 
           <article class="quiz-card" data-correct="0">
-            <div class="theme-head">
-              <div class="icon-wrap">5</div>
+            <div class="card-top" style="display:flex; align-items:center; gap:12px; padding:14px 16px; border-bottom:3px solid var(--ink); background:linear-gradient(90deg, #ebd8b1, #d7b17a); font-weight:900; letter-spacing:0.04em; text-transform:uppercase;">
+              <div class="icon-wrap" style="width:36px;height:36px; font-size:1.2rem;">5</div>
               <span>Pyetja 5</span>
             </div>
             <div class="question-box">
@@ -1054,8 +1122,8 @@
           </article>
 
           <article class="quiz-card" data-correct="0">
-            <div class="theme-head">
-              <div class="icon-wrap">6</div>
+            <div class="card-top" style="display:flex; align-items:center; gap:12px; padding:14px 16px; border-bottom:3px solid var(--ink); background:linear-gradient(90deg, #ebd8b1, #d7b17a); font-weight:900; letter-spacing:0.04em; text-transform:uppercase;">
+              <div class="icon-wrap" style="width:36px;height:36px; font-size:1.2rem;">6</div>
               <span>Pyetja 6</span>
             </div>
             <div class="question-box">
@@ -1071,8 +1139,8 @@
           </article>
 
           <article class="quiz-card" data-correct="0">
-            <div class="theme-head">
-              <div class="icon-wrap">7</div>
+            <div class="card-top" style="display:flex; align-items:center; gap:12px; padding:14px 16px; border-bottom:3px solid var(--ink); background:linear-gradient(90deg, #ebd8b1, #d7b17a); font-weight:900; letter-spacing:0.04em; text-transform:uppercase;">
+              <div class="icon-wrap" style="width:36px;height:36px; font-size:1.2rem;">7</div>
               <span>Pyetja 7</span>
             </div>
             <div class="question-box">
@@ -1088,8 +1156,8 @@
           </article>
 
           <article class="quiz-card" data-correct="0">
-            <div class="theme-head">
-              <div class="icon-wrap">8</div>
+            <div class="card-top" style="display:flex; align-items:center; gap:12px; padding:14px 16px; border-bottom:3px solid var(--ink); background:linear-gradient(90deg, #ebd8b1, #d7b17a); font-weight:900; letter-spacing:0.04em; text-transform:uppercase;">
+              <div class="icon-wrap" style="width:36px;height:36px; font-size:1.2rem;">8</div>
               <span>Pyetja 8</span>
             </div>
             <div class="question-box">
@@ -1105,8 +1173,8 @@
           </article>
 
           <article class="quiz-card" data-correct="0">
-            <div class="theme-head">
-              <div class="icon-wrap">9</div>
+            <div class="card-top" style="display:flex; align-items:center; gap:12px; padding:14px 16px; border-bottom:3px solid var(--ink); background:linear-gradient(90deg, #ebd8b1, #d7b17a); font-weight:900; letter-spacing:0.04em; text-transform:uppercase;">
+              <div class="icon-wrap" style="width:36px;height:36px; font-size:1.2rem;">9</div>
               <span>Pyetja 9</span>
             </div>
             <div class="question-box">
@@ -1122,8 +1190,8 @@
           </article>
 
           <article class="quiz-card" data-correct="0">
-            <div class="theme-head">
-              <div class="icon-wrap">10</div>
+            <div class="card-top" style="display:flex; align-items:center; gap:12px; padding:14px 16px; border-bottom:3px solid var(--ink); background:linear-gradient(90deg, #ebd8b1, #d7b17a); font-weight:900; letter-spacing:0.04em; text-transform:uppercase;">
+              <div class="icon-wrap" style="width:36px;height:36px; font-size:1.2rem;">10</div>
               <span>Pyetja 10</span>
             </div>
             <div class="question-box">
@@ -1149,8 +1217,8 @@
 
         <div class="short-grid">
           <article class="short-card">
-            <div class="theme-head">
-              <div class="icon-wrap">✍️</div>
+            <div class="card-top" style="display:flex; align-items:center; gap:12px; padding:14px 16px; border-bottom:3px solid var(--ink); background:linear-gradient(90deg, #ebd8b1, #d7b17a); font-weight:900; letter-spacing:0.04em; text-transform:uppercase;">
+              <div class="icon-wrap" style="width:36px;height:36px; font-size:1.2rem;">✍️</div>
               <span>Pyetja 1</span>
             </div>
             <div class="card-body">
@@ -1164,8 +1232,8 @@
           </article>
 
           <article class="short-card">
-            <div class="theme-head">
-              <div class="icon-wrap">✍️</div>
+            <div class="card-top" style="display:flex; align-items:center; gap:12px; padding:14px 16px; border-bottom:3px solid var(--ink); background:linear-gradient(90deg, #ebd8b1, #d7b17a); font-weight:900; letter-spacing:0.04em; text-transform:uppercase;">
+              <div class="icon-wrap" style="width:36px;height:36px; font-size:1.2rem;">✍️</div>
               <span>Pyetja 2</span>
             </div>
             <div class="card-body">
@@ -1190,7 +1258,7 @@
         <div class="qr-card">
           <div>
             <h3 style="margin:0 0 8px; text-transform:uppercase; letter-spacing:0.04em;">Scan me</h3>
-            <p style="margin:0; color:var(--muted);">Skano kodin për të hapur faqen në telefon dhe vazhdo të studionit.</p>
+            <p style="margin:0; color:var(--muted);">Skano kodin për të hapur faqen në telefon dhe të vazhdosh me të njëjtin material.</p>
           </div>
           <img src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=https%3A%2F%2Fgithub.com%2Feraaahhh%2Fhistory-" alt="QR code" />
         </div>
@@ -1208,7 +1276,7 @@
             <ul style="margin:0; padding-left:18px; color:var(--muted);">
               <li>Libri shkollor i historisë për periudhat mesjetare dhe moderne.</li>
               <li>Materiale lidhur me qytetërimin arab, monarkitë evropiane dhe Perandorinë Osmane.</li>
-              <li>Referenca për kryqëzatat, qytetërimet dhe zhvillimin e shteteve evropiane.</li>
+              <li>Referenca për kryqëzatat, kutitë dhe zhvillimin e shteteve evropiane.</li>
             </ul>
           </div>
         </div>
@@ -1222,7 +1290,6 @@
       themeHeads.forEach((head) => {
         head.addEventListener('click', () => {
           const card = head.closest('.theme-card');
-          if (!card) return;
           const isOpen = card.classList.contains('open');
           document.querySelectorAll('.theme-card').forEach((c) => c.classList.remove('open'));
           if (!isOpen) card.classList.add('open');
@@ -1316,6 +1383,7 @@
 
           const accepted = valid[q] || [];
           const isCorrect = accepted.some((s) => value.includes(s));
+          input.style.borderColor = isCorrect ? 'var(--green)' : 'var(--red)';
           feedback.classList.add('show');
           if (!isCorrect) {
             feedback.textContent = 'Përgjigja e saktë: Për të kufizuar pushtetin e mbretit dhe për të kërkuar pëlqimin për taksat.';
